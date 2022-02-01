@@ -1,5 +1,8 @@
 <template>
-    <div id="titulo">
-        <h1>Symbaloo</h1>
+    <br>
+    <div class="col-4 text-center d-flex">
+        <button typer="button" class="btn btn-dark p-4">
+            +
+        </button>
     </div>
 </template>
