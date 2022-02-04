@@ -33,8 +33,13 @@
                 @endif
             @endfor
         
-            <div id="app">
+            {{-- <div id="app">
                 <boto></boto>
+            </div> --}}
+            <div id="app">
+                <!-- use the modal component, pass in the prop -->
+                <boto>
+                </boto>
             </div>
         </div>
     </div>
