@@ -16,18 +16,20 @@ class HomeController extends Controller {
         $this->middleware('auth');
     }
 
-    public function crear(Request $request) {
+    public function store(Request $request) {
         
-        $data= request()->validate([
+        $data = request()->validate([
             'nom' => ['required', 'string', 'max:255'],
-            'urlweb' => ['required', 'string', 'url', 'max:255', 'unique:users'],
-            'urlimagen' => ['required', 'string', 'url', 'max:255', 'unique:users'],
+            'linkweb' => ['required', 'string', 'max:255'],
+            'linkimage' => ['required', 'string', 'max:255'],
+            'propietari' => ['required', 'string', 'max:255'],
         ]);
 
         return Post::create([
             'nom' => $request->nom,
-            'urlweb' => $request->urlweb,
-            'imagen' => $request->urlimagen
+            'linkweb' => $request->linkweb,
+            'linkimage' => $request->linkimage,
+            'propietari' => $request->propietari,
         ]);
 
     }

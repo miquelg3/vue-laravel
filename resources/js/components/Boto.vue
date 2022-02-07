@@ -14,21 +14,25 @@
             <form>
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Nom:</label>
-                    <input type="text" class="form-control" id="nom" v-model="nom" :state="nomState" required>
+                    <input type="text" class="form-control" id="nom" v-model="crearNuevo.nom" required="">
                 </div>
                 <div class="form-group">
                     <label for="message-text" class="col-form-label" >Url web:</label>
-                    <input type="url" class="form-control" id="urlweb" v-model="urlweb" :state="urlwebState" required>
+                    <input type="text" class="form-control" id="linkweb" v-model="crearNuevo.linkweb" required="">
                 </div>
                 <div class="form-group">
                     <label for="message-text" class="col-form-label">Url imagen:</label>
-                    <input type="text" class="form-control" id="urlimage" v-model="urlimagen" :state="urlimagenState" required>
+                    <input type="text" class="form-control" id="linkimage" v-model="crearNuevo.linkimage" required="">
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Propietari:</label>
+                    <input type="text" class="form-control" id="propietari" v-model="crearNuevo.propietari" required="">
                 </div>
             </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" @click="modal.hide()">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary"  @click.prevent="crear">Save changes</button>
         </div>
       </div>
     </div>
@@ -36,23 +40,31 @@
 </template>
 
 <script>
-// src="/node_modules/vue-cookie/build/vue-cookie.js'"
+// Axios per a passar el post, que en routes será declarat, i posteriorment en HomeControllers especificat
 
 import { Modal } from 'bootstrap'
+import swal from 'sweetalert'
+
 export default {
   name: "App",
   data: () => ({
-    crearNueva: {nom: '', urlweb: '', urlimagen: ''}
+    crearNuevo: {nom: '', linkweb: '', linkimage: '', propietari: ''}
   }),
   mounted() {
     this.modal = new Modal(this.$refs.exampleModal)
   },
   methods: {
-    crearNueva(){
-      axios.post('crear_nueva', this.crearNueva).then(res=> {
-
-      })
+    crear(){
+      axios.post('crear_nueva', this.crearNuevo).then(res=> {
+        this.nueva = res.data;
+        $('#myModal').modal('hide')
+        swal("¡Felicidades!", "Nuevo marcador añadido correctamente", "success");
+      }).catch(function (error){
+        swal("¡Error!", "Algo ha salido mal", "error");
+        // console.log("Errr:: ", error.response.data);
+      });
     }
   }
 };
+// https://help.twitter.com/content/dam/help-twitter/brand/logo.png
 </script>
