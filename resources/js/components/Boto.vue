@@ -1,45 +1,5 @@
-<!-- <template> -->
-    <!-- <br> -->
-    <!-- <div class="col-4 text-center d-flex"> -->
-        <!-- boto -->
-        <!-- modal -->
-        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                    <div class="form-group">
-                        <label for="name" class="col-form-label">Nombre:</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="linkweb" class="col-form-label">Link web:</label>
-                        <input type="link" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="linkimage" class="col-form-label">Link image:</label>
-                        <input type="link" class="form-control">
-                    </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
-                </div>
-                </div>
-            </div>
-        </div> -->
-    <!-- </div>
-</template> -->
-
-
 <template>
+<!-- Creem el modal -->
   <button type="button" class="btn btn-primary" @click="modal.show()">
     Añadir nuevo
   </button>
@@ -54,15 +14,15 @@
             <form>
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Nom:</label>
-                    <input type="text" class="form-control" id="recipient-name">
+                    <input type="text" class="form-control" id="nom" v-model="nom" :state="nomState" required>
                 </div>
                 <div class="form-group">
-                    <label for="message-text" class="col-form-label">linkweb:</label>
-                    <textarea type="link" class="form-control" id="message-text"></textarea>
+                    <label for="message-text" class="col-form-label" >Url web:</label>
+                    <input type="url" class="form-control" id="urlweb" v-model="urlweb" :state="urlwebState" required>
                 </div>
                 <div class="form-group">
-                    <label for="message-text" class="col-form-label">linkimage:</label>
-                    <textarea type="link" class="form-control" id="message-text"></textarea>
+                    <label for="message-text" class="col-form-label">Url imagen:</label>
+                    <input type="text" class="form-control" id="urlimage" v-model="urlimagen" :state="urlimagenState" required>
                 </div>
             </form>
         </div>
@@ -76,14 +36,23 @@
 </template>
 
 <script>
+// src="/node_modules/vue-cookie/build/vue-cookie.js'"
+
 import { Modal } from 'bootstrap'
 export default {
   name: "App",
   data: () => ({
-    modal: null
+    crearNueva: {nom: '', urlweb: '', urlimagen: ''}
   }),
   mounted() {
     this.modal = new Modal(this.$refs.exampleModal)
+  },
+  methods: {
+    crearNueva(){
+      axios.post('crear_nueva', this.crearNueva).then(res=> {
+
+      })
+    }
   }
 };
 </script>

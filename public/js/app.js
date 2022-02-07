@@ -22454,16 +22454,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+// src="/node_modules/vue-cookie/build/vue-cookie.js'"
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "App",
   data: function data() {
     return {
-      modal: null
+      crearNueva: {
+        nom: '',
+        urlweb: '',
+        urlimagen: ''
+      }
     };
   },
   mounted: function mounted() {
     this.modal = new bootstrap__WEBPACK_IMPORTED_MODULE_0__.Modal(this.$refs.exampleModal);
+  },
+  methods: {
+    crearNueva: function crearNueva() {
+      axios.post('crear_nueva', this.crearNueva).then(function (res) {});
+    }
   }
 });
 
@@ -22505,13 +22515,50 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"modal-body\"><form><div class=\"form-group\"><label for=\"recipient-name\" class=\"col-form-label\">Nom:</label><input type=\"text\" class=\"form-control\" id=\"recipient-name\"></div><div class=\"form-group\"><label for=\"message-text\" class=\"col-form-label\">linkweb:</label><textarea type=\"link\" class=\"form-control\" id=\"message-text\"></textarea></div><div class=\"form-group\"><label for=\"message-text\" class=\"col-form-label\">linkimage:</label><textarea type=\"link\" class=\"form-control\" id=\"message-text\"></textarea></div></form></div>", 1);
-
+var _hoisted_6 = {
+  "class": "modal-body"
+};
 var _hoisted_7 = {
+  "class": "form-group"
+};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "recipient-name",
+  "class": "col-form-label"
+}, "Nom:", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = ["state"];
+var _hoisted_10 = {
+  "class": "form-group"
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "message-text",
+  "class": "col-form-label"
+}, "Url web:", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = ["state"];
+var _hoisted_13 = {
+  "class": "form-group"
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "message-text",
+  "class": "col-form-label"
+}, "Url imagen:", -1
+/* HOISTED */
+);
+
+var _hoisted_15 = ["state"];
+var _hoisted_16 = {
   "class": "modal-footer"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   type: "button",
   "class": "btn btn-primary"
 }, "Save changes", -1
@@ -22519,7 +22566,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Creem el modal "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "class": "btn btn-primary",
     onClick: _cache[0] || (_cache[0] = function ($event) {
@@ -22532,13 +22579,46 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return _ctx.modal.hide();
     }),
     "aria-label": "Close"
-  })]), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "nom",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.nom = $event;
+    }),
+    state: _ctx.nomState,
+    required: ""
+  }, null, 8
+  /* PROPS */
+  , _hoisted_9), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.nom]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "url",
+    "class": "form-control",
+    id: "urlweb",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return _ctx.urlweb = $event;
+    }),
+    state: _ctx.urlwebState,
+    required: ""
+  }, null, 8
+  /* PROPS */
+  , _hoisted_12), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.urlweb]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "class": "form-control",
+    id: "urlimage",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return _ctx.urlimagen = $event;
+    }),
+    state: _ctx.urlimagenState,
+    required: ""
+  }, null, 8
+  /* PROPS */
+  , _hoisted_15), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.urlimagen]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "class": "btn btn-secondary",
-    onClick: _cache[2] || (_cache[2] = function ($event) {
+    onClick: _cache[5] || (_cache[5] = function ($event) {
       return _ctx.modal.hide();
     })
-  }, "Close"), _hoisted_8])])])], 512
+  }, "Close"), _hoisted_17])])])], 512
   /* NEED_PATCH */
   )], 64
   /* STABLE_FRAGMENT */

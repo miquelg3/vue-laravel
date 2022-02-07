@@ -30,6 +30,12 @@
             @endauth
         </div>
         @endif
+        {{-- @php 
+        public function getCookie(Request $request){
+            $nom = $request->cookie('nom');
+            echo $nom;
+        }
+        @endphp --}}
     </div>
 </body>
 </html>
