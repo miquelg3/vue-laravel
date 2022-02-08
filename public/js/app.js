@@ -22466,8 +22466,7 @@ __webpack_require__.r(__webpack_exports__);
       crearNuevo: {
         nom: '',
         linkweb: '',
-        linkimage: '',
-        propietari: ''
+        linkimage: ''
       }
     };
   },
@@ -22480,10 +22479,9 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post('crear_nueva', this.crearNuevo).then(function (res) {
         _this.nueva = res.data;
-        $('#myModal').modal('hide');
-        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("¡Felicidades!", "Nuevo marcador añadido correctamente", "success");
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("¡Felicidades!", "Nuevo marcador añadido correctamente", "success"); // window.location.reload();
       })["catch"](function (error) {
-        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("¡Error!", "Algo ha salido mal", "error"); // console.log("Errr:: ", error.response.data);
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("¡Error!", "Algo ha salido mal", "error");
       });
     }
   }
@@ -22564,17 +22562,6 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_13 = {
-  "class": "form-group"
-};
-
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "recipient-name",
-  "class": "col-form-label"
-}, "Propietari:", -1
-/* HOISTED */
-);
-
-var _hoisted_15 = {
   "class": "modal-footer"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -22621,28 +22608,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     required: ""
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.crearNuevo.linkimage]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    "class": "form-control",
-    id: "propietari",
-    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
-      return _ctx.crearNuevo.propietari = $event;
-    }),
-    required: ""
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.crearNuevo.propietari]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.crearNuevo.linkimage]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group\">\n                    <label for=\"recipient-name\" class=\"col-form-label\">Propietari:</label>\n                    <input type=\"text\" class=\"form-control\" id=\"propietari\" v-model=\"crearNuevo.propietari\" required=\"\">\n                </div> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "class": "btn btn-secondary",
-    onClick: _cache[6] || (_cache[6] = function ($event) {
+    onClick: _cache[5] || (_cache[5] = function ($event) {
       return _ctx.modal.hide();
     })
   }, "Close"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "class": "btn btn-primary",
-    onClick: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+    onClick: [_cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.crear && $options.crear.apply($options, arguments);
-    }, ["prevent"]))
+    }, ["prevent"])), _cache[7] || (_cache[7] = function ($event) {
+      return _ctx.modal.hide();
+    })]
   }, "Save changes")])])])], 512
   /* NEED_PATCH */
   )], 64

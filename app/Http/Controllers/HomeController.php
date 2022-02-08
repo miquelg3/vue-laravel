@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller {
     /**
@@ -22,14 +24,13 @@ class HomeController extends Controller {
             'nom' => ['required', 'string', 'max:255'],
             'linkweb' => ['required', 'string', 'max:255'],
             'linkimage' => ['required', 'string', 'max:255'],
-            'propietari' => ['required', 'string', 'max:255'],
         ]);
 
         return Post::create([
             'nom' => $request->nom,
             'linkweb' => $request->linkweb,
             'linkimage' => $request->linkimage,
-            'propietari' => $request->propietari,
+            'propietari' => Auth::user()->name,
         ]);
 
     }

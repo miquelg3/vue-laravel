@@ -24,6 +24,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-// Auth::routes();
+// Post de axios que ve de boto.vue i va a HomeController
 
 Route::post('/crear_nueva', [App\Http\Controllers\HomeController::class, 'store'])->name('crear_nueva');

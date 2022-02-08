@@ -24,15 +24,15 @@
                     <label for="message-text" class="col-form-label">Url imagen:</label>
                     <input type="text" class="form-control" id="linkimage" v-model="crearNuevo.linkimage" required="">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Propietari:</label>
                     <input type="text" class="form-control" id="propietari" v-model="crearNuevo.propietari" required="">
-                </div>
+                </div> -->
             </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" @click="modal.hide()">Close</button>
-          <button type="button" class="btn btn-primary"  @click.prevent="crear">Save changes</button>
+          <button type="button" class="btn btn-primary"  @click.prevent="crear" @click="modal.hide()">Save changes</button>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@ import swal from 'sweetalert'
 export default {
   name: "App",
   data: () => ({
-    crearNuevo: {nom: '', linkweb: '', linkimage: '', propietari: ''}
+    crearNuevo: {nom: '', linkweb: '', linkimage: ''}
   }),
   mounted() {
     this.modal = new Modal(this.$refs.exampleModal)
@@ -57,11 +57,10 @@ export default {
     crear(){
       axios.post('crear_nueva', this.crearNuevo).then(res=> {
         this.nueva = res.data;
-        $('#myModal').modal('hide')
         swal("¡Felicidades!", "Nuevo marcador añadido correctamente", "success");
+        // window.location.reload();
       }).catch(function (error){
         swal("¡Error!", "Algo ha salido mal", "error");
-        // console.log("Errr:: ", error.response.data);
       });
     }
   }
