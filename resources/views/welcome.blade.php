@@ -21,19 +21,23 @@
             <br>
             <p>Ejemplo:</p>
         </div>
-        <div style="display: inline">
-            <a  href="https://www.Google.com" style="text-decoration: none">
-                <span class="bi bi-square" style="background-image: url(https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK); background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px"></span>
-            </a>
-            </h1 style="font-size: 80px"> Nombre: Google</h1>
-            <br>
-        </div>
-        <div style="display: inline">
-            <a  href="https://www.twitter.com" style="text-decoration: none">
-                <span class="bi bi-square" style="background-image: url(https://help.twitter.com/content/dam/help-twitter/brand/logo.png); background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px"></span>
-            </a>
-            </h1 style="font-size: 80px"> Nombre: Twitter</h1>
-            <br>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                <div class="col" style="display: inline">
+                    <a  href="https://www.Google.com" style="text-decoration: none">
+                        <span class="bi bi-square" style="background-image: url(https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK); background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px"></span>
+                    </a>
+                    </h1 style="font-size: 80px"> Nombre: Google</h1>
+                    <br>
+                </div>
+                <div class="col" style="display: inline">
+                    <a  href="https://www.twitter.com" style="text-decoration: none">
+                        <span class="bi bi-square" style="background-image: url(https://help.twitter.com/content/dam/help-twitter/brand/logo.png); background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px"></span>
+                    </a>
+                    </h1 style="font-size: 80px"> Nombre: Twitter</h1>
+                    <br>
+                </div>
+            </div>
         </div>
         @if (Route::has('login'))
         <div class="navbar navbar-expand navbar-light flex-column flex-md-row bd-navbar">

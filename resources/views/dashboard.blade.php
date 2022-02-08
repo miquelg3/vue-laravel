@@ -33,6 +33,8 @@
                 </div>
                 @endif
             @endfor
+            </div>
+        </div>
             
         
             {{-- <div id="app">
