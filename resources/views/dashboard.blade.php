@@ -19,11 +19,12 @@
             <h3>Usuario: {{ Auth::user()->name }}</h3>
         </div>
         <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
             {{-- Bucle per a trobar els posts de l usuari --}}
             @php $num = App\Models\Post::count(); @endphp
             @for ($i = 1; $i <= $num; $i++)
                 @if (App\Models\Post::find($i)->propietari == Auth::user()->name)
-                <div style="display: inline">
+                <div class="col" style="display: inline">
                     <a  href="{{App\Models\Post::find($i)->linkweb}}" style="text-decoration: none">
                         <span class="bi bi-square" style="background-image: url({{App\Models\Post::find($i)->linkimage}}); background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px"></span>
                     </a>

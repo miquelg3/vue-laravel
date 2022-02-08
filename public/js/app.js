@@ -22493,7 +22493,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   }
-}); // https://help.twitter.com/content/dam/help-twitter/brand/logo.png
+});
 
 /***/ }),
 

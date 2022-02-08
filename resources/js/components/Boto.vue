@@ -70,5 +70,4 @@ export default {
     }
   }
 };
-// https://help.twitter.com/content/dam/help-twitter/brand/logo.png
 </script>
