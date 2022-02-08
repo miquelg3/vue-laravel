@@ -22478,8 +22478,16 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post('crear_nueva', this.crearNuevo).then(function (res) {
-        _this.nueva = res.data;
-        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("¡Felicidades!", "Nuevo marcador añadido correctamente", "success"); // window.location.reload();
+        _this.nueva = res.data; // swal("¡Felicidades!", "Nuevo marcador añadido correctamente", "success");
+        // window.location.reload();
+
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()({
+          title: "¡Felicidades!",
+          text: "Nuevo marcador añadido correctamente",
+          type: "success"
+        }).then(function () {
+          location.reload();
+        });
       })["catch"](function (error) {
         sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("¡Error!", "Algo ha salido mal", "error");
       });

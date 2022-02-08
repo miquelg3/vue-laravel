@@ -57,8 +57,13 @@ export default {
     crear(){
       axios.post('crear_nueva', this.crearNuevo).then(res=> {
         this.nueva = res.data;
-        swal("¡Felicidades!", "Nuevo marcador añadido correctamente", "success");
+        // swal("¡Felicidades!", "Nuevo marcador añadido correctamente", "success");
         // window.location.reload();
+        swal({title: "¡Felicidades!", text: "Nuevo marcador añadido correctamente", type: 
+        "success"}).then(function(){ 
+          location.reload();
+        }
+        );
       }).catch(function (error){
         swal("¡Error!", "Algo ha salido mal", "error");
       });
