@@ -18,6 +18,10 @@ class HomeController extends Controller {
         $this->middleware('auth');
     }
 
+    public function listar_posts(){
+        return Post::all();
+    }
+
     public function store(Request $request) {
         
         $data = request()->validate([
