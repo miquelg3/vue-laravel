@@ -5,10 +5,13 @@
       <template v-for="post in posts" :key="post.id">
         <div v-if="post.propietari == user_auth" class="col" style="display: inline">
           <div class="col" style="display: inline">
-            <a  v-bind:href="post.linkweb" data-toggle="tooltip" data-placement="top" v-bind:title="post.nom" style="text-decoration: none">
+            <a v-bind:href="post.linkweb" v-bind:title="post.nom" style="text-decoration: none">
               <span class="bi bi-square" v-bind:style="{backgroundImage: 'url(' + post.linkimage + ')'}"  style="background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px"></span>
             </a>
-            <br>
+
+            <btn class="btn bi bi-square" v-if="editar == true" style="background-image: url(https://es.seaicons.com/wp-content/uploads/2016/09/Actions-document-edit-icon.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
+
+            </btn>
           </div>
         </div>
       </template>
@@ -52,25 +55,32 @@
       </div>
     </div>
   </div>
+  <template v-if="editar == false">
+    <button @click="editar = true" type="button" class="btn btn-secondary">
+      Editar
+    </button>
+  </template>
+  <template v-if="editar == true">
+    <button @click="editar = false" type="button" class="btn btn-secondary">
+      No editar
+    </button>
+  </template>
 </template>
 
 <script>
 // Axios per a passar el post, que en routes será declarat, i posteriorment en HomeControllers especificat
 
 import { Modal } from 'bootstrap'
-import { Tooltip } from "bootstrap";
 import swal from 'sweetalert'
 
-new Tooltip(document.body, {
-  selector: "[data-bs-toggle='tooltip']",
-});
 
 export default {
   props:['user_auth'],
   name: "App",
   data: () => ({
     posts: [],
-    crearNuevo: {nom: '', linkweb: '', linkimage: ''}
+    crearNuevo: {nom: '', linkweb: '', linkimage: ''},
+    editar: false
   }),
   mounted() {
     this.getPost()
@@ -95,7 +105,14 @@ export default {
       }).catch(function (error){
         swal("¡Error!", "Algo ha salido mal", "error");
       });
-    }
+    },
+    // changeEditar(){
+    //   if (editar == true) {
+    //     editar = false;
+    //   }else {
+    //     editar = true;
+    //   }
+    // }
   }
 };
 </script>
