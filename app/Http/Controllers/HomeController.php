@@ -38,4 +38,25 @@ class HomeController extends Controller {
         ]);
 
     }
+    // idPost és la variable que li haviem indicat en routes/web.php
+    public function update(Request $request, Post $idPost) {
+        
+        $data = request()->validate([
+            'nom' => ['required', 'string', 'max:255'],
+            'linkweb' => ['required', 'string', 'max:255'],
+            'linkimage' => ['required', 'string', 'max:255'],
+        ]);
+
+        // Per a que utilitze la funció de dalt i s'actualitza, es fa el següent
+
+        $idPost->update($data);
+
+    }
+
+    public function delete(Post $idPost) {
+        
+        $idPost->delete();
+
+    }
+
 }

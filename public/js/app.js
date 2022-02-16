@@ -22470,7 +22470,11 @@ __webpack_require__.r(__webpack_exports__);
         linkweb: '',
         linkimage: ''
       },
-      editar: false
+      editar: false,
+      titulo: '',
+      btnCrear: false,
+      btnEditar: false,
+      idPost: ''
     };
   },
   mounted: function mounted() {
@@ -22485,31 +22489,77 @@ __webpack_require__.r(__webpack_exports__);
         _this.posts = res.data;
       });
     },
+    // Mètode que s'executa una vegada apretes crear post
     crear: function crear() {
       var _this2 = this;
 
       axios.post('crear_nueva', this.crearNuevo).then(function (res) {
-        _this2.nueva = res.data; // swal("¡Felicidades!", "Nuevo marcador añadido correctamente", "success");
-        // window.location.reload();
-
+        _this2.nueva = res.data;
         sweetalert__WEBPACK_IMPORTED_MODULE_1___default()({
           title: "¡Felicidades!",
           text: "Nuevo marcador añadido correctamente",
-          type: "success"
+          icon: "success"
         }).then(function () {
           location.reload();
         });
       })["catch"](function (error) {
         sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("¡Error!", "Algo ha salido mal", "error");
       });
-    } // changeEditar(){
-    //   if (editar == true) {
-    //     editar = false;
-    //   }else {
-    //     editar = true;
-    //   }
-    // }
+    },
+    modalCrear: function modalCrear() {
+      this.titulo = 'Crear post';
+      this.btnCrear = true;
+      this.btnEditar = false;
+      this.crearNuevo = {
+        nom: '',
+        linkweb: '',
+        linkimage: ''
+      };
+    },
+    // Passem els datos del post seleccionat amb datospost
+    modalEditar: function modalEditar(datospost) {
+      this.titulo = 'Editar post';
+      this.btnCrear = false;
+      this.btnEditar = true;
+      this.crearNuevo = {
+        nom: datospost.nom,
+        linkweb: datospost.linkweb,
+        linkimage: datospost.linkimage
+      };
+      this.idPost = datospost.id;
+    },
+    // Mètode que s'executa una vegada apretes en editar post
+    editarpost: function editarpost() {
+      var _this3 = this;
 
+      axios.put('editar_post/' + this.idPost, this.crearNuevo).then(function (res) {
+        _this3.nueva = res.data;
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()({
+          title: "¡Felicidades!",
+          text: "Editado correctamente",
+          icon: "success"
+        }).then(function () {
+          location.reload();
+        });
+      })["catch"](function (error) {
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("¡Error!", "Algo ha salido mal", "error");
+      });
+    },
+    eliminar: function eliminar(datospost) {
+      var _this4 = this;
+
+      axios["delete"]('eliminar_post/' + datospost.id, this.crearNuevo).then(function (res) {
+        _this4.nueva = res.data;
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()({
+          title: "¡Felicidades!",
+          text: "Eliminado correctamente",
+          icon: "success"
+        }).then(function () {// location.reload();
+        });
+      })["catch"](function (error) {
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("¡Error!", "Algo ha salido mal", "error");
+      });
+    }
   }
 });
 
@@ -22532,13 +22582,14 @@ var _hoisted_1 = {
   "class": "container"
 };
 var _hoisted_2 = {
-  "class": "row row-cols-1 row-cols-sm-2 row-cols-md-4"
+  "class": "row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3"
 };
 var _hoisted_3 = {
   key: 0,
   "class": "col",
   style: {
-    "display": "inline"
+    "display": "inline",
+    "width": "50%"
   }
 };
 var _hoisted_4 = {
@@ -22563,14 +22614,10 @@ var _hoisted_8 = {
 var _hoisted_9 = {
   "class": "modal-header"
 };
-
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+var _hoisted_10 = {
   "class": "modal-title",
   id: "exampleModalLabel"
-}, "Añadir nuevo", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_11 = {
   "class": "modal-body"
 };
@@ -22616,7 +22663,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Llistem els marcadors "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.posts, function (post) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
       key: post.id
-    }, [post.propietari == $props.user_auth ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    }, [post.propietari == $props.user_auth ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Marcador "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
       href: post.linkweb,
       title: post.nom,
       style: {
@@ -22638,9 +22685,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* STYLE */
     )], 8
     /* PROPS */
-    , _hoisted_5), _ctx.editar == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_btn, {
+    , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Botó editar "), _ctx.editar == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_btn, {
       key: 0,
       "class": "btn bi bi-square",
+      onClick: function onClick($event) {
+        $options.modalEditar(post);
+
+        _ctx.modal.show();
+      },
       style: {
         "background-image": "url(https://es.seaicons.com/wp-content/uploads/2016/09/Actions-document-edit-icon.png)",
         "text-decoration": "none",
@@ -22653,7 +22705,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "background-position-y": "28px",
         "background-position-x": "18px"
       }
-    })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
+    }, null, 8
+    /* PROPS */
+    , ["onClick"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Botó eliminar "), _ctx.editar == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_btn, {
+      key: 1,
+      "class": "btn bi bi-square",
+      onClick: function onClick($event) {
+        return $options.eliminar(post);
+      },
+      style: {
+        "background-image": "url(https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png)",
+        "text-decoration": "none",
+        "padding-bottom": "60px",
+        "background-align": "center",
+        "background-repeat": "no-repeat",
+        "font-size": "60px",
+        "background-size": "47px 50px",
+        "background-position": "center",
+        "background-position-y": "28px",
+        "background-position-x": "18px"
+      }
+    }, null, 8
+    /* PROPS */
+    , ["onClick"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
     /* STABLE_FRAGMENT */
     );
   }), 128
@@ -22662,9 +22736,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "button",
     "class": "btn btn-primary",
     onClick: _cache[0] || (_cache[0] = function ($event) {
-      return _ctx.modal.show();
+      $options.modalCrear();
+
+      _ctx.modal.show();
     })
-  }, " Añadir nuevo "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, " Añadir nuevo "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Anem a gastar el mateix modal per a editar com per a crear "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.titulo), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "class": "btn-close",
     onClick: _cache[1] || (_cache[1] = function ($event) {
@@ -22701,13 +22779,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     required: ""
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.crearNuevo.linkimage]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"form-group\">\n                    <label for=\"recipient-name\" class=\"col-form-label\">Propietari:</label>\n                    <input type=\"text\" class=\"form-control\" id=\"propietari\" v-model=\"crearNuevo.propietari\" required=\"\">\n                </div> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.crearNuevo.linkimage]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "class": "btn btn-secondary",
     onClick: _cache[5] || (_cache[5] = function ($event) {
       return _ctx.modal.hide();
     })
-  }, "Close"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, "Cerrar"), _ctx.btnCrear ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+    key: 0,
     type: "button",
     "class": "btn btn-primary",
     onClick: [_cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
@@ -22715,18 +22794,27 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, ["prevent"])), _cache[7] || (_cache[7] = function ($event) {
       return _ctx.modal.hide();
     })]
-  }, "Save changes")])])])], 512
+  }, "Crear post")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.btnEditar ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+    key: 1,
+    type: "button",
+    "class": "btn btn-primary",
+    onClick: [_cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.editarpost && $options.editarpost.apply($options, arguments);
+    }, ["prevent"])), _cache[9] || (_cache[9] = function ($event) {
+      return _ctx.modal.hide();
+    })]
+  }, "Editar post")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])], 512
   /* NEED_PATCH */
   ), _ctx.editar == false ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
     key: 0,
-    onClick: _cache[8] || (_cache[8] = function ($event) {
+    onClick: _cache[10] || (_cache[10] = function ($event) {
       return _ctx.editar = true;
     }),
     type: "button",
     "class": "btn btn-secondary"
   }, " Editar ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.editar == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
     key: 1,
-    onClick: _cache[9] || (_cache[9] = function ($event) {
+    onClick: _cache[11] || (_cache[11] = function ($event) {
       return _ctx.editar = false;
     }),
     type: "button",
@@ -45777,3 +45865,4 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	
 /******/ })()
 ;
+//# sourceMappingURL=app.js.map

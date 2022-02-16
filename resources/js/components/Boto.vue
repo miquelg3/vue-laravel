@@ -1,16 +1,19 @@
 <template>
 <!-- Llistem els marcadors -->
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3">
       <template v-for="post in posts" :key="post.id">
-        <div v-if="post.propietari == user_auth" class="col" style="display: inline">
+        <div v-if="post.propietari == user_auth" class="col" style="display: inline; width: 50%">
           <div class="col" style="display: inline">
+            <!-- Marcador -->
             <a v-bind:href="post.linkweb" v-bind:title="post.nom" style="text-decoration: none">
               <span class="bi bi-square" v-bind:style="{backgroundImage: 'url(' + post.linkimage + ')'}"  style="background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px"></span>
             </a>
-
-            <btn class="btn bi bi-square" v-if="editar == true" style="background-image: url(https://es.seaicons.com/wp-content/uploads/2016/09/Actions-document-edit-icon.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
-
+            <!-- Botó editar -->
+            <btn class="btn bi bi-square"  v-if="editar == true" @click="modalEditar(post); modal.show()" style="background-image: url(https://es.seaicons.com/wp-content/uploads/2016/09/Actions-document-edit-icon.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
+            </btn>
+            <!-- Botó eliminar -->
+            <btn class="btn bi bi-square"  v-if="editar == true"  @click="eliminar(post)" style="background-image: url(https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
             </btn>
           </div>
         </div>
@@ -18,14 +21,15 @@
     </div>
   </div>
 <!-- Creem el boto -->
-  <button type="button" class="btn btn-primary" @click="modal.show()">
+  <button type="button" class="btn btn-primary" @click="modalCrear(); modal.show()">
     Añadir nuevo
   </button>
+  <!-- Anem a gastar el mateix modal per a editar com per a crear -->
   <div class="modal fade" ref="exampleModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Añadir nuevo</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{titulo}}</h5>
           <button type="button" class="btn-close" @click="modal.hide()" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -42,15 +46,12 @@
                     <label for="message-text" class="col-form-label">Url imagen:</label>
                     <input type="text" class="form-control" id="linkimage" v-model="crearNuevo.linkimage" required="">
                 </div>
-                <!-- <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Propietari:</label>
-                    <input type="text" class="form-control" id="propietari" v-model="crearNuevo.propietari" required="">
-                </div> -->
             </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" @click="modal.hide()">Close</button>
-          <button type="button" class="btn btn-primary"  @click.prevent="crear" @click="modal.hide()">Save changes</button>
+          <button type="button" class="btn btn-secondary" @click="modal.hide()">Cerrar</button>
+          <button type="button" class="btn btn-primary"  v-if="btnCrear" @click.prevent="crear" @click="modal.hide()">Crear post</button>
+          <button type="button" class="btn btn-primary"  v-if="btnEditar" @click.prevent="editarpost" @click="modal.hide()">Editar post</button>
         </div>
       </div>
     </div>
@@ -80,7 +81,11 @@ export default {
   data: () => ({
     posts: [],
     crearNuevo: {nom: '', linkweb: '', linkimage: ''},
-    editar: false
+    editar: false,
+    titulo: '',
+    btnCrear: false,
+    btnEditar: false,
+    idPost: ''
   }),
   mounted() {
     this.getPost()
@@ -92,12 +97,11 @@ export default {
         this.posts = res.data;
       })
     },
+    // Mètode que s'executa una vegada apretes crear post
     crear(){
       axios.post('crear_nueva', this.crearNuevo).then(res=> {
         this.nueva = res.data;
-        // swal("¡Felicidades!", "Nuevo marcador añadido correctamente", "success");
-        // window.location.reload();
-        swal({title: "¡Felicidades!", text: "Nuevo marcador añadido correctamente", type: 
+        swal({title: "¡Felicidades!", text: "Nuevo marcador añadido correctamente", icon: 
         "success"}).then(function(){ 
           location.reload();
         }
@@ -106,13 +110,45 @@ export default {
         swal("¡Error!", "Algo ha salido mal", "error");
       });
     },
-    // changeEditar(){
-    //   if (editar == true) {
-    //     editar = false;
-    //   }else {
-    //     editar = true;
-    //   }
-    // }
+    modalCrear(){
+      this.titulo ='Crear post'
+      this.btnCrear = true
+      this.btnEditar = false
+      this.crearNuevo = {nom: '', linkweb: '', linkimage: ''}
+    },
+    // Passem els datos del post seleccionat amb datospost
+    modalEditar(datospost){
+      this.titulo = 'Editar post'
+      this.btnCrear = false
+      this.btnEditar = true
+      this.crearNuevo = {nom: datospost.nom, linkweb: datospost.linkweb, linkimage: datospost.linkimage}
+      this.idPost = datospost.id
+    },
+    // Mètode que s'executa una vegada apretes en editar post
+    editarpost() {
+      axios.put('editar_post/' + this.idPost, this.crearNuevo).then(res=> {
+        this.nueva = res.data;
+        swal({title: "¡Felicidades!", text: "Editado correctamente", icon: 
+        "success"}).then(function(){ 
+          location.reload();
+        }
+        );
+      }).catch(function (error){
+        swal("¡Error!", "Algo ha salido mal", "error");
+      });
+    },
+    eliminar(datospost) {
+      axios.delete('eliminar_post/' + datospost.id, this.crearNuevo).then(res=> {
+        this.nueva = res.data;
+        swal({title: "¡Felicidades!", text: "Eliminado correctamente", icon: 
+        "success"}).then(function(){
+          // location.reload();
+        }
+        );
+      }).catch(function (error){
+        swal("¡Error!", "Algo ha salido mal", "error");
+      });
+    }
   }
 };
 </script>

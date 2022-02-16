@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+let productionSourceMaps = false;
 
 /*
  |--------------------------------------------------------------------------
@@ -17,5 +18,6 @@ mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'pub
     require('autoprefixer'),
     ])
     .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .sourceMaps(false, 'source-map');
     
