@@ -22,7 +22,7 @@ class HomeController extends Controller {
         return Post::all();
     }
 
-    public function store(Request $request) {
+    public function crear(Request $request) {
         
         $data = request()->validate([
             'nom' => ['required', 'string', 'max:255'],

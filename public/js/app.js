@@ -22554,7 +22554,8 @@ __webpack_require__.r(__webpack_exports__);
           title: "¡Felicidades!",
           text: "Eliminado correctamente",
           icon: "success"
-        }).then(function () {// location.reload();
+        }).then(function () {
+          location.reload();
         });
       })["catch"](function (error) {
         sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("¡Error!", "Algo ha salido mal", "error");
@@ -22842,6 +22843,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({});
 app.component('boto', (__webpack_require__(/*! ./components/Boto.vue */ "./resources/js/components/Boto.vue")["default"]));
 app.mount("#app");
+
+app.config.isCustomElement = function (tag) {
+  return tag.startsWith('bdl-');
+};
 
 /***/ }),
 

@@ -30,7 +30,7 @@ Route::get('/listar_posts', [App\Http\Controllers\HomeController::class, 'listar
 
 // Post de axios que ve de boto.vue i va a HomeController
 
-Route::post('/crear_nueva', [App\Http\Controllers\HomeController::class, 'store'])->name('crear_nueva');
+Route::post('/crear_nueva', [App\Http\Controllers\HomeController::class, 'crear'])->name('crear_nueva');
 
 // Put de axios que ve de boto.vue i va a HomeController amb el nom indicat, en este cas update. També tiguem una variable que es idPost
 

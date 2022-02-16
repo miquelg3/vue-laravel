@@ -142,7 +142,7 @@ export default {
         this.nueva = res.data;
         swal({title: "¡Felicidades!", text: "Eliminado correctamente", icon: 
         "success"}).then(function(){
-          // location.reload();
+          location.reload();
         }
         );
       }).catch(function (error){

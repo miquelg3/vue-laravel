@@ -19,27 +19,10 @@
         <div id="descripcion" class="container">
             <h3>Usuario: {{ Auth::user()->name }}</h3>
         </div>
-        {{-- Axina trauia els posts sense vue --}}
-        {{-- <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                {{-- Bucle per a trobar els posts de l usuari --}}
-                {{-- Comandament per a poder traure l'id de l'últim App\Models\Post::latest()->first()->id; --}}
-                {{-- @php $num = App\Models\Post::count(); @endphp
-                @for ($i = 1; $i <= $num; $i++)
-                    @if (App\Models\Post::find($i)->propietari == Auth::user()->name)
-                    <div class="col" style="display: inline">
-                        <a  href="{{App\Models\Post::find($i)->linkweb}}" title="Nombre: {{App\Models\Post::find($i)->nom}}" style="text-decoration: none">
-                            <span class="bi bi-square" style="background-image: url({{App\Models\Post::find($i)->linkimage}}); background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px"></span>
-                        </a>
-                        <br>
-                    </div>
-                    @endif
-                    @endfor
-            </div>
-        </div> --}}
         <br>
-        {{-- Ací no és només el botó, sinó també les els posts --}}
+        {{-- Ací no és només el botó, sinó també els posts --}}
             <div id="app">
+                {{-- Li passem la variable del usuari actual per a que lliste els seus usuaris --}}
                 <boto :user_auth="'{{Auth::user()->name}}'">
                 </boto>
             </div>
