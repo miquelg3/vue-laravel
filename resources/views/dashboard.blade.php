@@ -23,7 +23,7 @@
         {{-- Ací no és només el botó, sinó també els posts --}}
             <div id="app">
                 {{-- Li passem la variable del usuari actual per a que lliste els seus usuaris --}}
-                <boto :user_auth="'{{Auth::user()->name}}'">
+                <boto>
                 </boto>
             </div>
         </div>

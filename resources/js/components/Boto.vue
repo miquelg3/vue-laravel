@@ -3,7 +3,7 @@
   <div class="container">
     <div v-if="!editar" class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
       <template v-for="post in posts" :key="post.id">
-        <div v-if="post.propietari == user_auth" class="col" style="display: inline; width: 50%">
+        <div  class="col" style="display: inline; width: 50%">
           <div class="col" style="display: inline">
             <!-- Marcador -->
             <a v-bind:href="post.linkweb" v-bind:title="post.nom" style="text-decoration: none">
@@ -15,18 +15,18 @@
     </div>
     <div v-if="editar" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3">
       <template v-for="post in posts" :key="post.id">
-        <div v-if="post.propietari == user_auth" class="col" style="display: inline; width: 50%">
+        <div class="col" style="display: inline; width: 50%">
           <div class="col" style="display: inline">
             <!-- Marcador -->
             <a v-bind:href="post.linkweb" v-bind:title="post.nom" style="text-decoration: none">
               <span class="bi bi-square" v-bind:style="{backgroundImage: 'url(' + post.linkimage + ')'}"  style="background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px"></span>
             </a>
             <!-- Botó editar -->
-            <btn class="btn bi bi-square"  v-if="editar" @click="modalEditar(post); modal.show()" style="background-image: url(https://es.seaicons.com/wp-content/uploads/2016/09/Actions-document-edit-icon.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
-            </btn>
+            <button class="btn bi bi-square"  v-if="editar" @click="modalEditar(post); modal.show()" style="background-image: url(https://es.seaicons.com/wp-content/uploads/2016/09/Actions-document-edit-icon.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
+            </button>
             <!-- Botó eliminar -->
-            <btn class="btn bi bi-square"  v-if="editar"  @click="eliminar(post)" style="background-image: url(https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
-            </btn>
+            <button class="btn bi bi-square"  v-if="editar"  @click="eliminar(post)" style="background-image: url(https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
+            </button>
           </div>
         </div>
       </template>
@@ -85,10 +85,12 @@
 
 import { Modal } from 'bootstrap'
 import swal from 'sweetalert'
+import Button from '../../../vendor/laravel/breeze/stubs/inertia-vue/resources/js/Components/Button.vue';
 
 
 export default {
-  props:['user_auth'],
+  components: { Button },
+  // props:['user_auth'],
   name: "App",
   data: () => ({
     posts: [],

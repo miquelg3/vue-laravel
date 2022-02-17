@@ -19,7 +19,8 @@ class HomeController extends Controller {
     }
 
     public function listar_posts(){
-        return Post::all();
+        $name = Auth::user()->name;
+        return Post::where("propietari", $name)->get();
     }
 
     public function crear(Request $request) {
