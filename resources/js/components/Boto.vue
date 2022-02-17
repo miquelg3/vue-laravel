@@ -1,7 +1,19 @@
 <template>
 <!-- Llistem els marcadors -->
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3">
+    <div v-if="!editar" class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+      <template v-for="post in posts" :key="post.id">
+        <div v-if="post.propietari == user_auth" class="col" style="display: inline; width: 50%">
+          <div class="col" style="display: inline">
+            <!-- Marcador -->
+            <a v-bind:href="post.linkweb" v-bind:title="post.nom" style="text-decoration: none">
+              <span class="bi bi-square" v-bind:style="{backgroundImage: 'url(' + post.linkimage + ')'}"  style="background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px"></span>
+            </a>
+          </div>
+        </div>
+      </template>
+    </div>
+    <div v-if="editar" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3">
       <template v-for="post in posts" :key="post.id">
         <div v-if="post.propietari == user_auth" class="col" style="display: inline; width: 50%">
           <div class="col" style="display: inline">
@@ -10,10 +22,10 @@
               <span class="bi bi-square" v-bind:style="{backgroundImage: 'url(' + post.linkimage + ')'}"  style="background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px"></span>
             </a>
             <!-- Botó editar -->
-            <btn class="btn bi bi-square"  v-if="editar == true" @click="modalEditar(post); modal.show()" style="background-image: url(https://es.seaicons.com/wp-content/uploads/2016/09/Actions-document-edit-icon.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
+            <btn class="btn bi bi-square"  v-if="editar" @click="modalEditar(post); modal.show()" style="background-image: url(https://es.seaicons.com/wp-content/uploads/2016/09/Actions-document-edit-icon.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
             </btn>
             <!-- Botó eliminar -->
-            <btn class="btn bi bi-square"  v-if="editar == true"  @click="eliminar(post)" style="background-image: url(https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
+            <btn class="btn bi bi-square"  v-if="editar"  @click="eliminar(post)" style="background-image: url(https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png);text-decoration: none; padding-bottom: 60px; background-align: center; background-repeat: no-repeat; font-size:60px; background-size: 47px 50px; background-position: center; background-position-y: 28px; background-position-x: 18px">
             </btn>
           </div>
         </div>
@@ -56,12 +68,12 @@
       </div>
     </div>
   </div>
-  <template v-if="editar == false">
+  <template v-if="!editar">
     <button @click="editar = true" type="button" class="btn btn-secondary">
       Editar
     </button>
   </template>
-  <template v-if="editar == true">
+  <template v-if="editar">
     <button @click="editar = false" type="button" class="btn btn-secondary">
       No editar
     </button>
