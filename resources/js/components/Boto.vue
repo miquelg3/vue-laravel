@@ -2,6 +2,14 @@
 <!-- Llistem els marcadors -->
   <div class="container">
     <div v-if="!editar" class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+      <div  class="col" style="display: inline; width: 50%">
+          <div class="col" style="display: inline">
+            <!-- Marcador -->
+            <a href="/simondice" title="simondice" style="text-decoration: none">
+              <span class="bi bi-square"  style='background-image: url("https://cdn3.iconfinder.com/data/icons/retro-tech/60/Retro_Tech_-_Flat_-_054_-_Simon_Says-512.png") ;background-align: center; background-repeat: no-repeat; font-size:80px; background-size: 78px 70px; background-position-y: 21px; background-position-x: 1px'></span>
+            </a>
+          </div>
+        </div>
       <template v-for="post in posts" :key="post.id">
         <div  class="col" style="display: inline; width: 50%">
           <div class="col" style="display: inline">

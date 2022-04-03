@@ -19,8 +19,8 @@ class HomeController extends Controller {
     }
 
     public function listar_posts(){
-        $name = Auth::user()->name;
-        return Post::where("propietari", $name)->get();
+        $id = Auth::user()->id;
+        return Post::where("propietari", $id)->get();
     }
 
     public function crear(Request $request) {
@@ -35,7 +35,7 @@ class HomeController extends Controller {
             'nom' => $request->nom,
             'linkweb' => $request->linkweb,
             'linkimage' => $request->linkimage,
-            'propietari' => Auth::user()->name,
+            'propietari' => Auth::user()->id,
         ]);
 
     }

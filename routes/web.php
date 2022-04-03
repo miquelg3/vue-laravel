@@ -22,6 +22,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/simondice', function () {
+    return view('simondice');
+});
+
 require __DIR__.'/auth.php';
 
 // Get de axios que ve de boto.vue i va a HomeController
