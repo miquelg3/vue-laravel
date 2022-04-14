@@ -22571,6 +22571,305 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/SimonDice.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/SimonDice.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "App",
+  data: function data() {
+    return {
+      juego: false,
+      cpu: [],
+      persona: [],
+      touch: false,
+      counttouch: 0,
+      num: 0,
+      rand: 0,
+      movs: 0,
+      delay: 0,
+      delay1: 0
+    };
+  },
+  methods: {
+    start: function start() {
+      document.getElementById('div1').style.display = "grid";
+      document.getElementById('emp').style.display = "none";
+      this.juego = true;
+      this.touch = false;
+      document.getElementById('level').style.display = "grid";
+      this.cpujoc();
+    },
+    colores: function colores(color) {
+      console.log(color);
+
+      if (color == 0) {
+        var changecolor1 = function changecolor1() {
+          document.getElementById('0').style.backgroundColor = "rgb(92, 175, 92)";
+        }; //this.Delay per a que mentre s'ensenyen els colors anteriors, este no s'ensenye al mateix temps
+
+
+        var changecolor2 = function changecolor2() {
+          document.getElementById('0').style.backgroundColor = "green";
+        };
+
+        setTimeout(changecolor1, this.delay);
+
+        if (this.movs < 10) {
+          this.delay1 = this.delay + 1000;
+        } else {
+          this.delay1 = this.delay + 500;
+        }
+
+        setTimeout(changecolor2, this.delay1);
+      }
+
+      if (color == 1) {
+        var _changecolor = function _changecolor() {
+          document.getElementById('1').style.backgroundColor = "rgb(94, 94, 255)";
+        };
+
+        var _changecolor2 = function _changecolor2() {
+          document.getElementById('1').style.backgroundColor = "blue";
+        };
+
+        setTimeout(_changecolor, this.delay);
+
+        if (this.movs < 10) {
+          this.delay1 = this.delay + 1000;
+        } else {
+          this.delay1 = this.delay + 500;
+        }
+
+        setTimeout(_changecolor2, this.delay1);
+      }
+
+      if (color == 2) {
+        var _changecolor3 = function _changecolor3() {
+          document.getElementById('2').style.backgroundColor = "rgb(247, 92, 92)";
+        };
+
+        var _changecolor4 = function _changecolor4() {
+          document.getElementById('2').style.backgroundColor = "red";
+        };
+
+        setTimeout(_changecolor3, this.delay);
+
+        if (this.movs < 10) {
+          this.delay1 = this.delay + 1000;
+        } else {
+          this.delay1 = this.delay + 500;
+        }
+
+        setTimeout(_changecolor4, this.delay1);
+      }
+
+      if (color == 3) {
+        var _changecolor5 = function _changecolor5() {
+          document.getElementById('3').style.backgroundColor = "rgb(255, 255, 152)";
+        };
+
+        var _changecolor6 = function _changecolor6() {
+          document.getElementById('3').style.backgroundColor = "yellow";
+        };
+
+        setTimeout(_changecolor5, this.delay);
+
+        if (this.movs < 10) {
+          this.delay1 = this.delay + 1000;
+        } else {
+          this.delay1 = this.delay + 500;
+        }
+
+        setTimeout(_changecolor6, this.delay1);
+      }
+
+      if (color == 4) {
+        var _changecolor7 = function _changecolor7() {
+          document.getElementById('4').style.backgroundColor = "rgb(255, 138, 95)";
+        };
+
+        var _changecolor8 = function _changecolor8() {
+          document.getElementById('4').style.backgroundColor = "orangered";
+        };
+
+        setTimeout(_changecolor7, this.delay);
+
+        if (this.movs < 10) {
+          this.delay1 = this.delay + 1000;
+        } else {
+          this.delay1 = this.delay + 500;
+        }
+
+        setTimeout(_changecolor8, this.delay1);
+      }
+
+      if (color == 5) {
+        var _changecolor9 = function _changecolor9() {
+          document.getElementById('5').style.backgroundColor = "rgb(255, 108, 255)";
+        };
+
+        var _changecolor10 = function _changecolor10() {
+          document.getElementById('5').style.backgroundColor = "fuchsia";
+        };
+
+        setTimeout(_changecolor9, this.delay);
+
+        if (this.movs < 10) {
+          this.delay1 = this.delay + 1000;
+        } else {
+          this.delay1 = this.delay + 500;
+        }
+
+        setTimeout(_changecolor10, this.delay1);
+      }
+
+      if (color == 6) {
+        var _changecolor11 = function _changecolor11() {
+          document.getElementById('6').style.backgroundColor = "rgb(101, 70, 122)";
+        };
+
+        var _changecolor12 = function _changecolor12() {
+          document.getElementById('6').style.backgroundColor = "indigo";
+        };
+
+        setTimeout(_changecolor11, this.delay);
+
+        if (this.movs < 10) {
+          this.delay1 = this.delay + 1000;
+        } else {
+          this.delay1 = this.delay + 500;
+        }
+
+        setTimeout(_changecolor12, this.delay1);
+      }
+
+      if (color == 7) {
+        var _changecolor13 = function _changecolor13() {
+          document.getElementById('7').style.backgroundColor = "rgb(106, 255, 106)";
+        };
+
+        var _changecolor14 = function _changecolor14() {
+          document.getElementById('7').style.backgroundColor = "lime";
+        };
+
+        setTimeout(_changecolor13, this.delay);
+
+        if (this.movs < 10) {
+          this.delay1 = this.delay + 1000;
+        } else {
+          this.delay1 = this.delay + 500;
+        }
+
+        setTimeout(_changecolor14, this.delay1);
+      }
+    },
+    doscolors1: function doscolors1() {
+      document.getElementById('4').style.display = "block";
+      document.getElementById('5').style.display = "block";
+    },
+    doscolors2: function doscolors2() {
+      document.getElementById('6').style.display = "block";
+      document.getElementById('7').style.display = "block";
+    },
+    cl: function cl(numm) {
+      if (this.touch == false) {
+        //Si està mostrant els colors, no es pot tocar res
+        window.alert("No puedes tocar nada");
+      } else {
+        console.log(this.cpu + " (cpu)");
+        console.log(numm + " (num)");
+        console.log(this.delay + " (delay)");
+
+        if (this.conttouch <= this.movs) {
+          if (this.num == this.cpu[this.conttouch]) {
+            this.colores(numm);
+            this.conttouch++;
+
+            if (this.conttouch == this.movs) {
+              console.log(numm + " (num apretat)");
+              this.persona.push(numm);
+              setTimeout(this.touchfalse, 1500);
+            }
+          } else {
+            console.log(numm + " (num apretat)" + this.cpu[this.conttouch] + " (num real)"); //Quan t'equivoques, que desaparega el quadrat i que només estiga el botó de restartgame
+
+            document.getElementById('div1').style.display = "none";
+            document.getElementById('fallo').style.display = "grid";
+          }
+        }
+
+        console.log(this.conttouch + " (conttouch)");
+        console.log(this.movs + " (movs)");
+        console.log(this.persona + " (persona)");
+        console.log("");
+      }
+    },
+    //Creem les funcions de touch
+    touchfalse: function touchfalse() {
+      this.touch = false;
+      this.cpujoc();
+    },
+    touchtrue: function touchtrue() {
+      console.log(this.touch);
+      this.touch = true;
+    },
+    cpujoc: function cpujoc() {
+      if (this.touch == false) {
+        //Mostrar la ronda en la que estem
+        document.getElementById('level').innerHTML = "Ronda " + (this.movs + 1); //Si arribem a la ronda 15 o 20, la variable random també ens ha de mostrar en un rango de dos números més
+
+        if (this.movs < 15) {
+          this.rand = Math.floor(Math.random() * 4);
+        } else if (this.movs >= 15 && movs < 20) {
+          this.rand = Math.floor(Math.random() * 6);
+        } else if (this.movs >= 20) {
+          this.rand = Math.floor(Math.random() * 8);
+        } //Cridem la funció per a que es mostren els nous colors
+
+
+        if (this.movs == 15) {
+          this.doscolors1();
+        }
+
+        if (this.movs == 20) {
+          this.doscolors2();
+        }
+
+        this.cpu.push(this.rand);
+
+        for (var n = 0; n <= this.movs; n++) {
+          var numerocpu = this.cpu[n];
+          this.colores(numerocpu); //Quan arribem a la ronda 10 que puge la velocitat
+
+          if (this.movs < 10) {
+            this.delay = this.delay + 1000;
+          } else {
+            this.delay = this.delay + 500;
+          }
+        }
+
+        console.log(this.delay + " (delay)"); //Per a que no pugam tocar res
+
+        setTimeout(this.touchtrue, this.delay);
+        this.delay = 0;
+        this.delay1 = 0;
+        this.conttouch = 0;
+        this.movs++;
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./vendor/laravel/breeze/stubs/inertia-vue/resources/js/Components/Button.vue?vue&type=script&lang=js":
 /*!****************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./vendor/laravel/breeze/stubs/inertia-vue/resources/js/Components/Button.vue?vue&type=script&lang=js ***!
@@ -22967,51 +23266,15 @@ var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
     "class": "game--fail",
     id: "fallo"
-  }, "¡¡Game over!!", -1
+  }, "Game over!!", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "game--container",
-    id: "div1"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    id: "0",
-    "class": "cell",
-    onclick: "cl(0)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    id: "1",
-    "class": "cell",
-    onclick: "cl(1)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    id: "2",
-    "class": "cell",
-    onclick: "cl(2)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    id: "3",
-    "class": "cell",
-    onclick: "cl(3)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    id: "4",
-    "class": "cell",
-    onclick: "cl(4)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    id: "5",
-    "class": "cell",
-    onclick: "cl(5)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    id: "6",
-    "class": "cell",
-    onclick: "cl(6)"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    id: "7",
-    "class": "cell",
-    onclick: "cl(7)"
-  })], -1
-  /* HOISTED */
-  );
-});
+var _hoisted_4 = {
+  "class": "game--container",
+  id: "div1"
+};
 
 var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
@@ -23023,16 +23286,6 @@ var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "btn game--start",
-    id: "emp",
-    onclick: "start()"
-  }, "Start game", -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "game--restart",
     onclick: "location.reload()"
   }, "Restart Game", -1
@@ -23040,9 +23293,62 @@ var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_8 = [_hoisted_1, _hoisted_2, _hoisted_3, _hoisted_4, _hoisted_5, _hoisted_6, _hoisted_7];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", null, _hoisted_8);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", null, [_hoisted_1, _hoisted_2, _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    id: "0",
+    "class": "cell",
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $options.cl(0);
+    })
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    id: "1",
+    "class": "cell",
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $options.cl(1);
+    })
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    id: "2",
+    "class": "cell",
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return $options.cl(2);
+    })
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    id: "3",
+    "class": "cell",
+    onClick: _cache[3] || (_cache[3] = function ($event) {
+      return $options.cl(3);
+    })
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    id: "4",
+    "class": "cell",
+    onClick: _cache[4] || (_cache[4] = function ($event) {
+      return $options.cl(4);
+    })
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    id: "5",
+    "class": "cell",
+    onClick: _cache[5] || (_cache[5] = function ($event) {
+      return $options.cl(5);
+    })
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    id: "6",
+    "class": "cell",
+    onClick: _cache[6] || (_cache[6] = function ($event) {
+      return $options.cl(6);
+    })
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    id: "7",
+    "class": "cell",
+    onClick: _cache[7] || (_cache[7] = function ($event) {
+      return $options.cl(7);
+    })
+  })]), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "btn game--start",
+    id: "emp",
+    onClick: _cache[8] || (_cache[8] = function ($event) {
+      $options.start();
+    })
+  }, "Start game"), _hoisted_6]);
 }
 
 /***/ }),
@@ -23125,297 +23431,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/simondice.js?vue&type=script&lang=js":
-/*!****************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/simondice.js?vue&type=script&lang=js ***!
-  \****************************************************************************************************************************/
-/***/ (() => {
-
-var juego = false;
-var cpu = new Array();
-var persona = new Array();
-var touch = false;
-var conttouch = 0;
-var num = 0;
-var rand = 0;
-var movs = 0;
-var delay = 0;
-var delay1 = 0; //Quan fem click en start
-
-function start() {
-  var record = 0;
-  document.getElementById('div1').style.display = "grid";
-  document.getElementById('emp').style.display = "none";
-  juego = true;
-  touch = false;
-  document.getElementById('level').style.display = "grid";
-  cpujoc();
-} //Funció per a canviar de color una vegada tingam el número
-
-
-function colores(color) {
-  if (color == 0) {
-    var changecolor1 = function changecolor1() {
-      document.getElementById('0').style.backgroundColor = "rgb(92, 175, 92)";
-    }; //Delay per a que mentre s'ensenyen els colors anteriors, este no s'ensenye al mateix temps
-
-
-    var changecolor2 = function changecolor2() {
-      document.getElementById('0').style.backgroundColor = "green";
-    };
-
-    setTimeout(changecolor1, delay);
-
-    if (movs < 10) {
-      delay1 = delay + 1000;
-    } else {
-      delay1 = delay + 500;
-    }
-
-    setTimeout(changecolor2, delay1);
-  }
-
-  if (color == 1) {
-    var _changecolor = function _changecolor() {
-      document.getElementById('1').style.backgroundColor = "rgb(94, 94, 255)";
-    };
-
-    var _changecolor2 = function _changecolor2() {
-      document.getElementById('1').style.backgroundColor = "blue";
-    };
-
-    setTimeout(_changecolor, delay);
-
-    if (movs < 10) {
-      delay1 = delay + 1000;
-    } else {
-      delay1 = delay + 500;
-    }
-
-    setTimeout(_changecolor2, delay1);
-  }
-
-  if (color == 2) {
-    var _changecolor3 = function _changecolor3() {
-      document.getElementById('2').style.backgroundColor = "rgb(247, 92, 92)";
-    };
-
-    var _changecolor4 = function _changecolor4() {
-      document.getElementById('2').style.backgroundColor = "red";
-    };
-
-    setTimeout(_changecolor3, delay);
-
-    if (movs < 10) {
-      delay1 = delay + 1000;
-    } else {
-      delay1 = delay + 500;
-    }
-
-    setTimeout(_changecolor4, delay1);
-  }
-
-  if (color == 3) {
-    var _changecolor5 = function _changecolor5() {
-      document.getElementById('3').style.backgroundColor = "rgb(255, 255, 152)";
-    };
-
-    var _changecolor6 = function _changecolor6() {
-      document.getElementById('3').style.backgroundColor = "yellow";
-    };
-
-    setTimeout(_changecolor5, delay);
-
-    if (movs < 10) {
-      delay1 = delay + 1000;
-    } else {
-      delay1 = delay + 500;
-    }
-
-    setTimeout(_changecolor6, delay1);
-  }
-
-  if (color == 4) {
-    var _changecolor7 = function _changecolor7() {
-      document.getElementById('4').style.backgroundColor = "rgb(255, 138, 95)";
-    };
-
-    var _changecolor8 = function _changecolor8() {
-      document.getElementById('4').style.backgroundColor = "orangered";
-    };
-
-    setTimeout(_changecolor7, delay);
-
-    if (movs < 10) {
-      delay1 = delay + 1000;
-    } else {
-      delay1 = delay + 500;
-    }
-
-    setTimeout(_changecolor8, delay1);
-  }
-
-  if (color == 5) {
-    var _changecolor9 = function _changecolor9() {
-      document.getElementById('5').style.backgroundColor = "rgb(255, 108, 255)";
-    };
-
-    var _changecolor10 = function _changecolor10() {
-      document.getElementById('5').style.backgroundColor = "fuchsia";
-    };
-
-    setTimeout(_changecolor9, delay);
-
-    if (movs < 10) {
-      delay1 = delay + 1000;
-    } else {
-      delay1 = delay + 500;
-    }
-
-    setTimeout(_changecolor10, delay1);
-  }
-
-  if (color == 6) {
-    var _changecolor11 = function _changecolor11() {
-      document.getElementById('6').style.backgroundColor = "rgb(101, 70, 122)";
-    };
-
-    var _changecolor12 = function _changecolor12() {
-      document.getElementById('6').style.backgroundColor = "indigo";
-    };
-
-    setTimeout(_changecolor11, delay);
-
-    if (movs < 10) {
-      delay1 = delay + 1000;
-    } else {
-      delay1 = delay + 500;
-    }
-
-    setTimeout(_changecolor12, delay1);
-  }
-
-  if (color == 7) {
-    var _changecolor13 = function _changecolor13() {
-      document.getElementById('7').style.backgroundColor = "rgb(106, 255, 106)";
-    };
-
-    var _changecolor14 = function _changecolor14() {
-      document.getElementById('7').style.backgroundColor = "lime";
-    };
-
-    setTimeout(_changecolor13, delay);
-
-    if (movs < 10) {
-      delay1 = delay + 1000;
-    } else {
-      delay1 = delay + 500;
-    }
-
-    setTimeout(_changecolor14, delay1);
-  }
-} //Funció que mostra els nous colors
-
-
-function doscolors1() {
-  document.getElementById('4').style.display = "block";
-  document.getElementById('5').style.display = "block";
-}
-
-function doscolors2() {
-  document.getElementById('6').style.display = "block";
-  document.getElementById('7').style.display = "block";
-}
-
-function cl(num) {
-  if (touch == false) {
-    //Si està mostrant els colors, no es pot tocar res
-    window.alert("No puedes tocar nada");
-  } else {
-    console.log(cpu + " (cpu)");
-    console.log(num + " (num)");
-    console.log(delay + " (delay)");
-
-    if (conttouch <= movs) {
-      if (num == cpu[conttouch]) {
-        colores(num);
-        conttouch++;
-
-        if (conttouch == movs) {
-          var touchfalse = function touchfalse() {
-            touch = false;
-            cpujoc();
-          };
-
-          persona.push(num);
-          setTimeout(touchfalse, 1500);
-        }
-      } else {
-        //Quan t'equivoques, que desaparega el quadrat i que només estiga el botó de restartgame
-        document.getElementById('div1').style.display = "none";
-        document.getElementById('fallo').style.display = "grid";
-      }
-    }
-
-    console.log(conttouch + " (conttouch)");
-    console.log(movs + " (movs)");
-    console.log(persona + " (persona)");
-    console.log("");
-  }
-}
-
-function cpujoc() {
-  if (touch == false) {
-    var touchtrue = function touchtrue() {
-      console.log(touch);
-      touch = true;
-    }; //Per a que no pugam tocar res
-
-
-    //Mostrar la ronda en la que estem
-    document.getElementById('level').innerHTML = "Ronda " + (movs + 1); //Si arribem a la ronda 15 o 20, la variable random també ens ha de mostrar en un rango de dos números més
-
-    if (movs < 15) {
-      rand = Math.floor(Math.random() * 4);
-    } else if (movs >= 15 && movs < 20) {
-      rand = Math.floor(Math.random() * 6);
-    } else if (movs >= 20) {
-      rand = Math.floor(Math.random() * 8);
-    } //Cridem la funció per a que es mostren els nous colors
-
-
-    if (movs == 15) {
-      doscolors1();
-    }
-
-    if (movs == 20) {
-      doscolors2();
-    }
-
-    cpu.push(rand);
-
-    for (n = 0; n <= movs; n++) {
-      numerocpu = cpu[n];
-      colores(numerocpu); //Quan arribem a la ronda 10 que puge la velocitat
-
-      if (movs < 10) {
-        delay = delay + 1000;
-      } else {
-        delay = delay + 500;
-      }
-    }
-
-    console.log(delay + " (delay)");
-    setTimeout(touchtrue, delay);
-    delay = 0;
-    delay1 = 0;
-    conttouch = 0;
-    movs++;
-  }
-}
 
 /***/ }),
 
@@ -28466,7 +28481,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nsection[data-v-79f88962] {\r\n        text-align: center;\n}\n.game--title[data-v-79f88962] {\r\n        font-size: 100px;\r\n        color: #d7a62f;\r\n        margin: 10px auto;\n}\n.game--level[data-v-79f88962] {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #007c4d;\r\n        margin: 10px auto;\n}\n.game--container[data-v-79f88962] {\r\n        display: none;\r\n        grid-template-columns: repeat(2, auto);\r\n        width: 205px;\r\n        margin: 10px auto;\r\n        background-color: #11213a;\r\n        color: #04c0b2;\n}\n.game--fail[data-v-79f88962] {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #c90000;\r\n        margin: 10px auto;\n}\n[id='0'][data-v-79f88962] {\r\n        background-color: green;\r\n        /*background-color: rgb(92, 175, 92);*/\n}\n[id='1'][data-v-79f88962] {\r\n        background-color: blue;\r\n        /*background-color: rgb(94, 94, 255);*/\n}\n[id='2'][data-v-79f88962] {\r\n        background-color: red;\r\n        /*background-color: rgb(247, 92, 92);*/\n}\n[id='3'][data-v-79f88962] {\r\n        background-color: yellow;\r\n        /*background-color: rgb(255, 255, 152);*/\n}\n[id='4'][data-v-79f88962] {\r\n        display: none;\r\n        background-color: orangered;\r\n        /*background-color: rgb(255, 138, 95);*/\n}\n[id='5'][data-v-79f88962] {\r\n        display: none;\r\n        background-color: fuchsia;\r\n        /*background-color: rgb(255, 108, 255);*/\n}\n[id='6'][data-v-79f88962] {\r\n        display: none;\r\n        background-color: indigo;\r\n        /*background-color: rgb(101, 70, 122);*/\n}\n[id='7'][data-v-79f88962] {\r\n        display: none;\r\n        background-color: lime;\r\n        /*background-color: rgb(106, 255, 106);*/\n}\n.cell[data-v-79f88962] {\r\n        font-family: \"Permanent Marker\", cursive;\r\n        width: 100px;\r\n        height: 100px;\r\n        box-shadow: 2px 2px 2px 2px #ecd7ba;\r\n        border: 2px solid #ecd7ba;\r\n        cursor: pointer;\r\n        line-height: 100px;\r\n        font-size: 60px;\n}\n.game--start[data-v-79f88962] {\r\n        background-color: #f7e4ac;\r\n        width: 200px;\r\n        height: 50px;\r\n        font-size: 25px;\r\n        color: #5586e2;\r\n        box-shadow: 2px 2px 2px 2px #d86c23;\r\n        border: 2px solid #d86c23;\n}\n.game--restart[data-v-79f88962] {\r\n        display: none;\r\n        background-color: #f7e4ac;\r\n        width: 200px;\r\n        height: 50px;\r\n        font-size: 25px;\r\n        color: #5586e2;\r\n        box-shadow: 2px 2px 2px 2px #d86c23;\r\n        border: 2px solid #d86c23;\n}\r\n\r\n    /* .game--ranking {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #fc8f00;\r\n        margin: 10px auto;\r\n    } */\r\n", "",{"version":3,"sources":["webpack://./resources/js/components/SimonDice.vue"],"names":[],"mappings":";AA8BI;QACI,kBAAkB;AACtB;AAEA;QACI,gBAAgB;QAChB,cAAc;QACd,iBAAiB;AACrB;AAEA;QACI,aAAa;QACb,eAAe;QACf,cAAc;QACd,iBAAiB;AACrB;AAGA;QACI,aAAa;QACb,sCAAsC;QACtC,YAAY;QACZ,iBAAiB;QACjB,yBAAyB;QACzB,cAAc;AAClB;AAEA;QACI,aAAa;QACb,eAAe;QACf,cAAc;QACd,iBAAiB;AACrB;AAEA;QACI,uBAAuB;QACvB,sCAAsC;AAC1C;AAEA;QACI,sBAAsB;QACtB,sCAAsC;AAC1C;AAEA;QACI,qBAAqB;QACrB,sCAAsC;AAC1C;AAEA;QACI,wBAAwB;QACxB,wCAAwC;AAC5C;AAEA;QACI,aAAa;QACb,2BAA2B;QAC3B,uCAAuC;AAC3C;AAEA;QACI,aAAa;QACb,yBAAyB;QACzB,wCAAwC;AAC5C;AAEA;QACI,aAAa;QACb,wBAAwB;QACxB,uCAAuC;AAC3C;AAEA;QACI,aAAa;QACb,sBAAsB;QACtB,wCAAwC;AAC5C;AAEA;QACI,wCAAwC;QACxC,YAAY;QACZ,aAAa;QACb,mCAAmC;QACnC,yBAAyB;QACzB,eAAe;QACf,kBAAkB;QAClB,eAAe;AACnB;AAEA;QACI,yBAAyB;QACzB,YAAY;QACZ,YAAY;QACZ,eAAe;QACf,cAAc;QACd,mCAAmC;QACnC,yBAAyB;AAC7B;AAEA;QACI,aAAa;QACb,yBAAyB;QACzB,YAAY;QACZ,YAAY;QACZ,eAAe;QACf,cAAc;QACd,mCAAmC;QACnC,yBAAyB;AAC7B;;IAEA;;;;;OAKG","sourcesContent":["<template>\r\n\r\n<section>\r\n    <h1 class=\"game--title\" id=\"titol\">Simon says!</h1>\r\n    <h2 class=\"game--level\" id=\"level\"></h2>\r\n    <h3 class=\"game--fail\" id=\"fallo\">¡¡Game over!!</h3>\r\n    <div class=\"game--container\" id=\"div1\">\r\n        <div id=\"0\" class=\"cell\" onclick=\"cl(0)\"></div>\r\n        <div id=\"1\" class=\"cell\" onclick=\"cl(1)\"></div>\r\n        <div id=\"2\" class=\"cell\" onclick=\"cl(2)\"></div>\r\n        <div id=\"3\" class=\"cell\" onclick=\"cl(3)\"></div>\r\n        <div id=\"4\" class=\"cell\" onclick=\"cl(4)\"></div>\r\n        <div id=\"5\" class=\"cell\" onclick=\"cl(5)\"></div>\r\n        <div id=\"6\" class=\"cell\" onclick=\"cl(6)\"></div>\r\n        <div id=\"7\" class=\"cell\" onclick=\"cl(7)\"></div>\r\n    </div>\r\n    <h2 class=\"game--status\"></h2>\r\n    <button class=\"btn game--start\" id=\"emp\" onclick=\"start()\">Start game</button>\r\n    <button class=\"game--restart\" onclick=\"location.reload()\">Restart Game</button>\r\n</section>\r\n\r\n\r\n</template>\r\n\r\n<script src=\"../simondice.js\"></script>\r\n\r\n\r\n<style scoped>\r\n    \r\n\r\n    section {\r\n        text-align: center;\r\n    }\r\n\r\n    .game--title {\r\n        font-size: 100px;\r\n        color: #d7a62f;\r\n        margin: 10px auto;\r\n    }\r\n\r\n    .game--level {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #007c4d;\r\n        margin: 10px auto;\r\n    }\r\n\r\n\r\n    .game--container {\r\n        display: none;\r\n        grid-template-columns: repeat(2, auto);\r\n        width: 205px;\r\n        margin: 10px auto;\r\n        background-color: #11213a;\r\n        color: #04c0b2;\r\n    }\r\n\r\n    .game--fail {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #c90000;\r\n        margin: 10px auto;\r\n    }\r\n\r\n    [id='0'] {\r\n        background-color: green;\r\n        /*background-color: rgb(92, 175, 92);*/\r\n    }\r\n\r\n    [id='1'] {\r\n        background-color: blue;\r\n        /*background-color: rgb(94, 94, 255);*/\r\n    }\r\n\r\n    [id='2'] {\r\n        background-color: red;\r\n        /*background-color: rgb(247, 92, 92);*/\r\n    }\r\n\r\n    [id='3'] {\r\n        background-color: yellow;\r\n        /*background-color: rgb(255, 255, 152);*/\r\n    }\r\n\r\n    [id='4'] {\r\n        display: none;\r\n        background-color: orangered;\r\n        /*background-color: rgb(255, 138, 95);*/\r\n    }\r\n\r\n    [id='5'] {\r\n        display: none;\r\n        background-color: fuchsia;\r\n        /*background-color: rgb(255, 108, 255);*/\r\n    }\r\n\r\n    [id='6'] {\r\n        display: none;\r\n        background-color: indigo;\r\n        /*background-color: rgb(101, 70, 122);*/\r\n    }\r\n\r\n    [id='7'] {\r\n        display: none;\r\n        background-color: lime;\r\n        /*background-color: rgb(106, 255, 106);*/\r\n    }\r\n\r\n    .cell {\r\n        font-family: \"Permanent Marker\", cursive;\r\n        width: 100px;\r\n        height: 100px;\r\n        box-shadow: 2px 2px 2px 2px #ecd7ba;\r\n        border: 2px solid #ecd7ba;\r\n        cursor: pointer;\r\n        line-height: 100px;\r\n        font-size: 60px;\r\n    }\r\n\r\n    .game--start {\r\n        background-color: #f7e4ac;\r\n        width: 200px;\r\n        height: 50px;\r\n        font-size: 25px;\r\n        color: #5586e2;\r\n        box-shadow: 2px 2px 2px 2px #d86c23;\r\n        border: 2px solid #d86c23;\r\n    }\r\n\r\n    .game--restart {\r\n        display: none;\r\n        background-color: #f7e4ac;\r\n        width: 200px;\r\n        height: 50px;\r\n        font-size: 25px;\r\n        color: #5586e2;\r\n        box-shadow: 2px 2px 2px 2px #d86c23;\r\n        border: 2px solid #d86c23;\r\n    }\r\n\r\n    /* .game--ranking {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #fc8f00;\r\n        margin: 10px auto;\r\n    } */\r\n</style>"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nsection[data-v-79f88962] {\r\n        text-align: center;\n}\n.game--title[data-v-79f88962] {\r\n        font-size: 100px;\r\n        color: #d7a62f;\r\n        margin: 10px auto;\n}\n.game--level[data-v-79f88962] {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #007c4d;\r\n        margin: 10px auto;\n}\n.game--container[data-v-79f88962] {\r\n        display: none;\r\n        grid-template-columns: repeat(2, auto);\r\n        width: 205px;\r\n        margin: 10px auto;\r\n        background-color: #11213a;\r\n        color: #04c0b2;\n}\n.game--fail[data-v-79f88962] {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #c90000;\r\n        margin: 10px auto;\n}\n[id='0'][data-v-79f88962] {\r\n        background-color: green;\r\n        /*background-color: rgb(92, 175, 92);*/\n}\n[id='1'][data-v-79f88962] {\r\n        background-color: blue;\r\n        /*background-color: rgb(94, 94, 255);*/\n}\n[id='2'][data-v-79f88962] {\r\n        background-color: red;\r\n        /*background-color: rgb(247, 92, 92);*/\n}\n[id='3'][data-v-79f88962] {\r\n        background-color: yellow;\r\n        /*background-color: rgb(255, 255, 152);*/\n}\n[id='4'][data-v-79f88962] {\r\n        display: none;\r\n        background-color: orangered;\r\n        /*background-color: rgb(255, 138, 95);*/\n}\n[id='5'][data-v-79f88962] {\r\n        display: none;\r\n        background-color: fuchsia;\r\n        /*background-color: rgb(255, 108, 255);*/\n}\n[id='6'][data-v-79f88962] {\r\n        display: none;\r\n        background-color: indigo;\r\n        /*background-color: rgb(101, 70, 122);*/\n}\n[id='7'][data-v-79f88962] {\r\n        display: none;\r\n        background-color: lime;\r\n        /*background-color: rgb(106, 255, 106);*/\n}\n.cell[data-v-79f88962] {\r\n        font-family: \"Permanent Marker\", cursive;\r\n        width: 100px;\r\n        height: 100px;\r\n        box-shadow: 2px 2px 2px 2px #ecd7ba;\r\n        border: 2px solid #ecd7ba;\r\n        cursor: pointer;\r\n        line-height: 100px;\r\n        font-size: 60px;\n}\n.game--start[data-v-79f88962] {\r\n        background-color: #f7e4ac;\r\n        width: 200px;\r\n        height: 50px;\r\n        font-size: 25px;\r\n        color: #5586e2;\r\n        box-shadow: 2px 2px 2px 2px #d86c23;\r\n        border: 2px solid #d86c23;\n}\n.game--restart[data-v-79f88962] {\r\n        background-color: #f7e4ac;\r\n        width: 200px;\r\n        height: 50px;\r\n        font-size: 25px;\r\n        color: #5586e2;\r\n        box-shadow: 2px 2px 2px 2px #d86c23;\r\n        border: 2px solid #d86c23;\n}\r\n\r\n    /* .game--ranking {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #fc8f00;\r\n        margin: 10px auto;\r\n    } */\r\n", "",{"version":3,"sources":["webpack://./resources/js/components/SimonDice.vue"],"names":[],"mappings":";AAmRI;QACI,kBAAkB;AACtB;AAEA;QACI,gBAAgB;QAChB,cAAc;QACd,iBAAiB;AACrB;AAEA;QACI,aAAa;QACb,eAAe;QACf,cAAc;QACd,iBAAiB;AACrB;AAGA;QACI,aAAa;QACb,sCAAsC;QACtC,YAAY;QACZ,iBAAiB;QACjB,yBAAyB;QACzB,cAAc;AAClB;AAEA;QACI,aAAa;QACb,eAAe;QACf,cAAc;QACd,iBAAiB;AACrB;AAEA;QACI,uBAAuB;QACvB,sCAAsC;AAC1C;AAEA;QACI,sBAAsB;QACtB,sCAAsC;AAC1C;AAEA;QACI,qBAAqB;QACrB,sCAAsC;AAC1C;AAEA;QACI,wBAAwB;QACxB,wCAAwC;AAC5C;AAEA;QACI,aAAa;QACb,2BAA2B;QAC3B,uCAAuC;AAC3C;AAEA;QACI,aAAa;QACb,yBAAyB;QACzB,wCAAwC;AAC5C;AAEA;QACI,aAAa;QACb,wBAAwB;QACxB,uCAAuC;AAC3C;AAEA;QACI,aAAa;QACb,sBAAsB;QACtB,wCAAwC;AAC5C;AAEA;QACI,wCAAwC;QACxC,YAAY;QACZ,aAAa;QACb,mCAAmC;QACnC,yBAAyB;QACzB,eAAe;QACf,kBAAkB;QAClB,eAAe;AACnB;AAEA;QACI,yBAAyB;QACzB,YAAY;QACZ,YAAY;QACZ,eAAe;QACf,cAAc;QACd,mCAAmC;QACnC,yBAAyB;AAC7B;AAEA;QACI,yBAAyB;QACzB,YAAY;QACZ,YAAY;QACZ,eAAe;QACf,cAAc;QACd,mCAAmC;QACnC,yBAAyB;AAC7B;;IAEA;;;;;OAKG","sourcesContent":["<template>\r\n\r\n<section>\r\n    <h1 class=\"game--title\" id=\"titol\">Simon says!</h1>\r\n    <h2 class=\"game--level\" id=\"level\"></h2>\r\n    <h3 class=\"game--fail\" id=\"fallo\">Game over!!</h3>\r\n    <div class=\"game--container\" id=\"div1\">\r\n        <div id=\"0\" class=\"cell\" @click=\"cl(0)\"></div>\r\n        <div id=\"1\" class=\"cell\" @click=\"cl(1)\"></div>\r\n        <div id=\"2\" class=\"cell\" @click=\"cl(2)\"></div>\r\n        <div id=\"3\" class=\"cell\" @click=\"cl(3)\"></div>\r\n        <div id=\"4\" class=\"cell\" @click=\"cl(4)\"></div>\r\n        <div id=\"5\" class=\"cell\" @click=\"cl(5)\"></div>\r\n        <div id=\"6\" class=\"cell\" @click=\"cl(6)\"></div>\r\n        <div id=\"7\" class=\"cell\" @click=\"cl(7)\"></div>\r\n    </div>\r\n    <h2 class=\"game--status\"></h2>\r\n    <button class=\"btn game--start\" id=\"emp\" @click=\"start();\">Start game</button>\r\n    <button class=\"game--restart\" onclick=\"location.reload()\">Restart Game</button>\r\n</section>\r\n\r\n\r\n</template>\r\n\r\n<script>\r\n\r\n    export default {\r\n        name: \"App\",\r\n        data: () => ({\r\n            juego: false,\r\n            cpu: [],\r\n            persona: [],\r\n            touch: false,\r\n            counttouch: 0,\r\n            num: 0,\r\n            rand: 0,\r\n            movs: 0,\r\n            delay: 0,\r\n            delay1: 0\r\n        }),\r\n        methods: {\r\n            start() {\r\n                document.getElementById('div1').style.display = \"grid\";\r\n                document.getElementById('emp').style.display = \"none\";\r\n                this.juego = true;\r\n                this.touch = false;\r\n                document.getElementById('level').style.display = \"grid\";\r\n                this.cpujoc();\r\n            },\r\n\r\n            colores(color) {\r\n                console.log(color);\r\n                if (color == 0) {\r\n                    function changecolor1(){\r\n                        document.getElementById('0').style.backgroundColor = \"rgb(92, 175, 92)\";\r\n                    }\r\n                    //this.Delay per a que mentre s'ensenyen els colors anteriors, este no s'ensenye al mateix temps\r\n                    setTimeout(changecolor1,this.delay);\r\n                    if(this.movs<10){\r\n                        this.delay1 = this.delay + 1000;\r\n                    }else{\r\n                        this.delay1 = this.delay + 500;\r\n                    }\r\n                    function changecolor2(){\r\n                        document.getElementById('0').style.backgroundColor=\"green\";\r\n                    }\r\n                    setTimeout(changecolor2,this.delay1);\r\n                }\r\n                if (color == 1) {\r\n                    function changecolor1(){\r\n                        document.getElementById('1').style.backgroundColor = \"rgb(94, 94, 255)\";\r\n                    }\r\n                    setTimeout(changecolor1,this.delay);\r\n                    if(this.movs<10){\r\n                        this.delay1 = this.delay + 1000;\r\n                    }else{\r\n                        this.delay1 = this.delay + 500;\r\n                    }\r\n                    function changecolor2(){\r\n                        document.getElementById('1').style.backgroundColor=\"blue\";\r\n                    }\r\n                    setTimeout(changecolor2,this.delay1);\r\n                }\r\n\r\n                if (color == 2) {\r\n                    function changecolor1(){\r\n                        document.getElementById('2').style.backgroundColor = \"rgb(247, 92, 92)\";\r\n                    }\r\n                    setTimeout(changecolor1,this.delay);\r\n                    if(this.movs<10){\r\n                        this.delay1 = this.delay + 1000;\r\n                    }else{\r\n                        this.delay1 = this.delay + 500;\r\n                    }\r\n                    function changecolor2(){\r\n                        document.getElementById('2').style.backgroundColor=\"red\";\r\n                    }\r\n                    setTimeout(changecolor2,this.delay1);\r\n                }\r\n\r\n                if (color == 3) {\r\n                    function changecolor1(){\r\n                        document.getElementById('3').style.backgroundColor = \"rgb(255, 255, 152)\";\r\n                    }\r\n                    setTimeout(changecolor1,this.delay);\r\n                    if(this.movs<10){\r\n                        this.delay1 = this.delay + 1000;\r\n                    }else{\r\n                        this.delay1 = this.delay + 500;\r\n                    }\r\n                    function changecolor2(){\r\n                        document.getElementById('3').style.backgroundColor=\"yellow\";\r\n                    }\r\n                    setTimeout(changecolor2,this.delay1);\r\n                }\r\n\r\n                if (color == 4) {\r\n                    function changecolor1(){\r\n                        document.getElementById('4').style.backgroundColor = \"rgb(255, 138, 95)\";\r\n                    }\r\n                    setTimeout(changecolor1,this.delay);\r\n                    if(this.movs<10){\r\n                        this.delay1 = this.delay + 1000;\r\n                    }else{\r\n                        this.delay1 = this.delay + 500;\r\n                    }\r\n                    function changecolor2(){\r\n                        document.getElementById('4').style.backgroundColor=\"orangered\";\r\n                    }\r\n                    setTimeout(changecolor2,this.delay1);\r\n                }\r\n\r\n                if (color == 5) {\r\n                    function changecolor1(){\r\n                        document.getElementById('5').style.backgroundColor = \"rgb(255, 108, 255)\";\r\n                    }\r\n                    setTimeout(changecolor1,this.delay);\r\n                    if(this.movs<10){\r\n                        this.delay1 = this.delay + 1000;\r\n                    }else{\r\n                        this.delay1 = this.delay + 500;\r\n                    }\r\n                    function changecolor2(){\r\n                        document.getElementById('5').style.backgroundColor=\"fuchsia\";\r\n                    }\r\n                    setTimeout(changecolor2,this.delay1);\r\n                }\r\n\r\n                if (color == 6) {\r\n                    function changecolor1(){\r\n                        document.getElementById('6').style.backgroundColor = \"rgb(101, 70, 122)\";\r\n                    }\r\n                    setTimeout(changecolor1,this.delay);\r\n                    if(this.movs<10){\r\n                        this.delay1 = this.delay + 1000;\r\n                    }else{\r\n                        this.delay1 = this.delay + 500;\r\n                    }\r\n                    function changecolor2(){\r\n                        document.getElementById('6').style.backgroundColor=\"indigo\";\r\n                    }\r\n                    setTimeout(changecolor2,this.delay1);\r\n                }\r\n\r\n                if (color == 7) {\r\n                    function changecolor1(){\r\n                        document.getElementById('7').style.backgroundColor = \"rgb(106, 255, 106)\";\r\n                    }\r\n                    setTimeout(changecolor1,this.delay);\r\n                    if(this.movs<10){\r\n                        this.delay1 = this.delay + 1000;\r\n                    }else{\r\n                        this.delay1 = this.delay + 500;\r\n                    }\r\n                    function changecolor2(){\r\n                        document.getElementById('7').style.backgroundColor=\"lime\";\r\n                    }\r\n                    setTimeout(changecolor2,this.delay1);\r\n                }\r\n            },\r\n            doscolors1() {\r\n                document.getElementById('4').style.display=\"block\";\r\n                document.getElementById('5').style.display=\"block\";\r\n            },\r\n            doscolors2() {\r\n                document.getElementById('6').style.display=\"block\";\r\n                document.getElementById('7').style.display=\"block\";\r\n            },\r\n            cl(numm) {\r\n                if(this.touch == false) {\r\n                    //Si està mostrant els colors, no es pot tocar res\r\n                    window.alert(\"No puedes tocar nada\");\r\n                }else{\r\n                    console.log(this.cpu + \" (cpu)\");\r\n                    console.log(numm + \" (num)\");\r\n                    console.log(this.delay + \" (delay)\");\r\n                    if (this.conttouch <= this.movs) {\r\n                        if (this.num==this.cpu[this.conttouch]){\r\n                            this.colores(numm);\r\n                            this.conttouch++;\r\n                            if (this.conttouch == this.movs) {\r\n                                console.log(numm + \" (num apretat)\");\r\n                                this.persona.push(numm);\r\n                                setTimeout(this.touchfalse,1500);\r\n                            }\r\n                        }else{\r\n                            console.log(numm + \" (num apretat)\" + this.cpu[this.conttouch] + \" (num real)\");\r\n                            //Quan t'equivoques, que desaparega el quadrat i que només estiga el botó de restartgame\r\n                            document.getElementById('div1').style.display = \"none\";\r\n                            document.getElementById('fallo').style.display = \"grid\";\r\n                        }\r\n                    }\r\n                    console.log(this.conttouch + \" (conttouch)\");\r\n                    console.log(this.movs + \" (movs)\");\r\n                    console.log(this.persona + \" (persona)\");\r\n                    console.log(\"\");\r\n                }\r\n            },\r\n            //Creem les funcions de touch\r\n            touchfalse(){\r\n                this.touch = false;\r\n                this.cpujoc();\r\n            },\r\n            touchtrue() {\r\n                console.log(this.touch);\r\n                this.touch = true;\r\n            },\r\n            cpujoc() {\r\n                if (this.touch == false) {\r\n                    //Mostrar la ronda en la que estem\r\n                    document.getElementById('level').innerHTML = \"Ronda \" + (this.movs+1);\r\n                    //Si arribem a la ronda 15 o 20, la variable random també ens ha de mostrar en un rango de dos números més\r\n                    if(this.movs<15){\r\n                        this.rand = Math.floor(Math.random()*4);\r\n                    }else if (this.movs>=15 && movs<20){\r\n                        this.rand = Math.floor(Math.random()*6);\r\n                    }else if (this.movs>=20){\r\n                        this.rand = Math.floor(Math.random()*8);\r\n                    }\r\n                    //Cridem la funció per a que es mostren els nous colors\r\n                    if(this.movs==15){\r\n                        this.doscolors1();\r\n                    }\r\n                    if(this.movs==20){\r\n                        this.doscolors2();\r\n                    }\r\n                    this.cpu.push(this.rand);\r\n                    for(var n=0; n<=this.movs; n++) {\r\n                        var numerocpu=this.cpu[n];\r\n                        this.colores(numerocpu);\r\n                        //Quan arribem a la ronda 10 que puge la velocitat\r\n                        if(this.movs < 10){\r\n                            this.delay = this.delay + 1000;\r\n                        }else{\r\n                            this.delay = this.delay + 500;\r\n                        }\r\n                    }\r\n                    console.log(this.delay + \" (delay)\");\r\n                    //Per a que no pugam tocar res\r\n                    setTimeout(this.touchtrue,this.delay);\r\n                    this.delay = 0;\r\n                    this.delay1 = 0;\r\n                    this.conttouch = 0;\r\n                    this.movs++;\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n</script>\r\n\r\n\r\n<style scoped>\r\n    \r\n\r\n    section {\r\n        text-align: center;\r\n    }\r\n\r\n    .game--title {\r\n        font-size: 100px;\r\n        color: #d7a62f;\r\n        margin: 10px auto;\r\n    }\r\n\r\n    .game--level {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #007c4d;\r\n        margin: 10px auto;\r\n    }\r\n\r\n\r\n    .game--container {\r\n        display: none;\r\n        grid-template-columns: repeat(2, auto);\r\n        width: 205px;\r\n        margin: 10px auto;\r\n        background-color: #11213a;\r\n        color: #04c0b2;\r\n    }\r\n\r\n    .game--fail {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #c90000;\r\n        margin: 10px auto;\r\n    }\r\n\r\n    [id='0'] {\r\n        background-color: green;\r\n        /*background-color: rgb(92, 175, 92);*/\r\n    }\r\n\r\n    [id='1'] {\r\n        background-color: blue;\r\n        /*background-color: rgb(94, 94, 255);*/\r\n    }\r\n\r\n    [id='2'] {\r\n        background-color: red;\r\n        /*background-color: rgb(247, 92, 92);*/\r\n    }\r\n\r\n    [id='3'] {\r\n        background-color: yellow;\r\n        /*background-color: rgb(255, 255, 152);*/\r\n    }\r\n\r\n    [id='4'] {\r\n        display: none;\r\n        background-color: orangered;\r\n        /*background-color: rgb(255, 138, 95);*/\r\n    }\r\n\r\n    [id='5'] {\r\n        display: none;\r\n        background-color: fuchsia;\r\n        /*background-color: rgb(255, 108, 255);*/\r\n    }\r\n\r\n    [id='6'] {\r\n        display: none;\r\n        background-color: indigo;\r\n        /*background-color: rgb(101, 70, 122);*/\r\n    }\r\n\r\n    [id='7'] {\r\n        display: none;\r\n        background-color: lime;\r\n        /*background-color: rgb(106, 255, 106);*/\r\n    }\r\n\r\n    .cell {\r\n        font-family: \"Permanent Marker\", cursive;\r\n        width: 100px;\r\n        height: 100px;\r\n        box-shadow: 2px 2px 2px 2px #ecd7ba;\r\n        border: 2px solid #ecd7ba;\r\n        cursor: pointer;\r\n        line-height: 100px;\r\n        font-size: 60px;\r\n    }\r\n\r\n    .game--start {\r\n        background-color: #f7e4ac;\r\n        width: 200px;\r\n        height: 50px;\r\n        font-size: 25px;\r\n        color: #5586e2;\r\n        box-shadow: 2px 2px 2px 2px #d86c23;\r\n        border: 2px solid #d86c23;\r\n    }\r\n\r\n    .game--restart {\r\n        background-color: #f7e4ac;\r\n        width: 200px;\r\n        height: 50px;\r\n        font-size: 25px;\r\n        color: #5586e2;\r\n        box-shadow: 2px 2px 2px 2px #d86c23;\r\n        border: 2px solid #d86c23;\r\n    }\r\n\r\n    /* .game--ranking {\r\n        display: none;\r\n        font-size: 50px;\r\n        color: #fc8f00;\r\n        margin: 10px auto;\r\n    } */\r\n</style>"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46408,10 +46423,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _SimonDice_vue_vue_type_template_id_79f88962_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SimonDice.vue?vue&type=template&id=79f88962&scoped=true */ "./resources/js/components/SimonDice.vue?vue&type=template&id=79f88962&scoped=true");
-/* harmony import */ var _simondice_js_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../simondice.js?vue&type=script&lang=js */ "./resources/js/simondice.js?vue&type=script&lang=js");
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _simondice_js_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _simondice_js_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+/* harmony import */ var _SimonDice_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SimonDice.vue?vue&type=script&lang=js */ "./resources/js/components/SimonDice.vue?vue&type=script&lang=js");
 /* harmony import */ var _SimonDice_vue_vue_type_style_index_0_id_79f88962_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SimonDice.vue?vue&type=style&index=0&id=79f88962&scoped=true&lang=css */ "./resources/js/components/SimonDice.vue?vue&type=style&index=0&id=79f88962&scoped=true&lang=css");
 /* harmony import */ var _var_www_html_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
@@ -46421,7 +46433,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,_var_www_html_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_simondice_js_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_SimonDice_vue_vue_type_template_id_79f88962_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-79f88962"],['__file',"resources/js/components/SimonDice.vue"]])
+const __exports__ = /*#__PURE__*/(0,_var_www_html_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_SimonDice_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_SimonDice_vue_vue_type_template_id_79f88962_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-79f88962"],['__file',"resources/js/components/SimonDice.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -46458,26 +46470,6 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/simondice.js?vue&type=script&lang=js":
-/*!***********************************************************!*\
-  !*** ./resources/js/simondice.js?vue&type=script&lang=js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport default from dynamic */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_simondice_js_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0___default.a)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_simondice_js_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./simondice.js?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./resources/js/simondice.js?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_simondice_js_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_simondice_js_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_simondice_js_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_simondice_js_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
- 
-
-/***/ }),
-
 /***/ "./resources/js/components/Boto.vue?vue&type=script&lang=js":
 /*!******************************************************************!*\
   !*** ./resources/js/components/Boto.vue?vue&type=script&lang=js ***!
@@ -46490,6 +46482,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Boto_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Boto_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Boto.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Boto.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/SimonDice.vue?vue&type=script&lang=js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/SimonDice.vue?vue&type=script&lang=js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SimonDice_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SimonDice_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SimonDice.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/SimonDice.vue?vue&type=script&lang=js");
  
 
 /***/ }),
