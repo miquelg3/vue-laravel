@@ -16,7 +16,7 @@
     </div>
     <h2 class="game--status"></h2>
     <button class="btn game--start" id="emp" @click="start();">Start game</button>
-    <button class="game--restart" onclick="location.reload()">Restart Game</button>
+    <button class="game--restart" id="res" onclick="location.reload()">Restart Game</button>
 </section>
 
 
@@ -32,7 +32,6 @@
             persona: [],
             touch: false,
             counttouch: 0,
-            num: 0,
             rand: 0,
             movs: 0,
             delay: 0,
@@ -186,28 +185,29 @@
                 document.getElementById('6').style.display="block";
                 document.getElementById('7').style.display="block";
             },
-            cl(numm) {
+            cl(num) {
                 if(this.touch == false) {
                     //Si està mostrant els colors, no es pot tocar res
                     window.alert("No puedes tocar nada");
                 }else{
                     console.log(this.cpu + " (cpu)");
-                    console.log(numm + " (num)");
+                    console.log(num + " (num)");
                     console.log(this.delay + " (delay)");
                     if (this.conttouch <= this.movs) {
-                        if (this.num==this.cpu[this.conttouch]){
-                            this.colores(numm);
+                        if (num==this.cpu[this.conttouch]){
+                            this.colores(num);
                             this.conttouch++;
                             if (this.conttouch == this.movs) {
-                                console.log(numm + " (num apretat)");
-                                this.persona.push(numm);
+                                console.log(num + " (num apretat)");
+                                this.persona.push(num);
                                 setTimeout(this.touchfalse,1500);
                             }
                         }else{
-                            console.log(numm + " (num apretat)" + this.cpu[this.conttouch] + " (num real)");
+                            console.log(num + " (num apretat)" + this.cpu[this.conttouch] + " (num real)");
                             //Quan t'equivoques, que desaparega el quadrat i que només estiga el botó de restartgame
                             document.getElementById('div1').style.display = "none";
                             document.getElementById('fallo').style.display = "grid";
+                            document.getElementById('res').style.display = "inline";
                         }
                     }
                     console.log(this.conttouch + " (conttouch)");
@@ -373,6 +373,7 @@
     }
 
     .game--restart {
+        display: none;
         background-color: #f7e4ac;
         width: 200px;
         height: 50px;
