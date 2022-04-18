@@ -17,11 +17,15 @@
     </style>
 </head>
 <body>
-    {{-- He creat este blade per a que tinga la seua pròpia ruta --}}
-    <div id="app">
-        <simondice>
-        </simondice>
-    </div>
-    <script src="{{ asset('js/app.js') }}"></script>
+    @if (Auth::check())
+        {{-- He creat este blade per a que tinga la seua pròpia ruta --}}
+        <div id="app">
+            <simondice>
+            </simondice>
+        </div>
+        <script src="{{ asset('js/app.js') }}"></script>
+    @else
+        <p>Tienes que iniciar sesión</p>
+    @endif
 </body>
 </html>

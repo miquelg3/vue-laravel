@@ -60,4 +60,11 @@ class HomeController extends Controller {
 
     }
 
+    // Per a fer logout
+
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect('/login');
+    }
+
 }

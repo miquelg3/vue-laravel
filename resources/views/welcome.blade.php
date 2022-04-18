@@ -41,6 +41,10 @@
         <div class="navbar navbar-expand navbar-light flex-column flex-md-row bd-navbar">
             @auth
             <a href="{{ url('/dashboard') }}" class="btn btn-dark btn-outline-secondary text-white">Entrar</a>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn btn-dark btn-outline-secondary text-white">Log out</button>
+            </form>
             @else
             <a href="{{ route('login') }}" class="btn btn-dark btn-outline-secondary text-white">Log in</a>
             

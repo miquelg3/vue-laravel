@@ -1,22 +1,24 @@
 <template>
 
 <section>
-    <h1 class="game--title" id="titol">Simon says!</h1>
-    <h2 class="game--level" id="level"></h2>
-    <h3 class="game--fail" id="fallo">Game over!!</h3>
-    <div class="game--container" id="div1">
-        <div id="0" class="cell" @click="cl(0)"></div>
-        <div id="1" class="cell" @click="cl(1)"></div>
-        <div id="2" class="cell" @click="cl(2)"></div>
-        <div id="3" class="cell" @click="cl(3)"></div>
-        <div id="4" class="cell" @click="cl(4)"></div>
-        <div id="5" class="cell" @click="cl(5)"></div>
-        <div id="6" class="cell" @click="cl(6)"></div>
-        <div id="7" class="cell" @click="cl(7)"></div>
+    <div>
+        <h1 class="game--title" id="titol">Simon says!</h1>
+        <h2 class="game--level" id="level"></h2>
+        <h3 class="game--fail" id="fallo">Game over!!</h3>
+        <div class="game--container" id="div1">
+            <div id="0" class="cell" @click="cl(0)"></div>
+            <div id="1" class="cell" @click="cl(1)"></div>
+            <div id="2" class="cell" @click="cl(2)"></div>
+            <div id="3" class="cell" @click="cl(3)"></div>
+            <div id="4" class="cell" @click="cl(4)"></div>
+            <div id="5" class="cell" @click="cl(5)"></div>
+            <div id="6" class="cell" @click="cl(6)"></div>
+            <div id="7" class="cell" @click="cl(7)"></div>
+        </div>
+        <h2 class="game--status"></h2>
+        <button class="btn game--start" id="emp" @click="start();">Start game</button>
+        <button class="game--restart" id="res" onclick="location.reload()">Restart Game</button>
     </div>
-    <h2 class="game--status"></h2>
-    <button class="btn game--start" id="emp" @click="start();">Start game</button>
-    <button class="game--restart" id="res" onclick="location.reload()">Restart Game</button>
 </section>
 
 
@@ -44,6 +46,7 @@
                 this.juego = true;
                 this.touch = false;
                 document.getElementById('level').style.display = "grid";
+                document.getElementById('res').style.display = "inline";
                 this.cpujoc();
             },
 
@@ -207,7 +210,6 @@
                             //Quan t'equivoques, que desaparega el quadrat i que només estiga el botó de restartgame
                             document.getElementById('div1').style.display = "none";
                             document.getElementById('fallo').style.display = "grid";
-                            document.getElementById('res').style.display = "inline";
                         }
                     }
                     console.log(this.conttouch + " (conttouch)");
@@ -232,7 +234,7 @@
                     //Si arribem a la ronda 15 o 20, la variable random també ens ha de mostrar en un rango de dos números més
                     if(this.movs<15){
                         this.rand = Math.floor(Math.random()*4);
-                    }else if (this.movs>=15 && movs<20){
+                    }else if (this.movs>=15 && this.movs<20){
                         this.rand = Math.floor(Math.random()*6);
                     }else if (this.movs>=20){
                         this.rand = Math.floor(Math.random()*8);

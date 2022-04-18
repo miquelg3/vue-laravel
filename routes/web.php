@@ -26,6 +26,9 @@ Route::get('/simondice', function () {
     return view('simondice');
 });
 
+// Ruta logout que va al HomeController
+Route::post('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
+
 require __DIR__.'/auth.php';
 
 // Get de axios que ve de boto.vue i va a HomeController
