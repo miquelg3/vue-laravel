@@ -18,11 +18,13 @@ class HomeController extends Controller {
         $this->middleware('auth');
     }
 
+    // Del boto.vue
     public function listar_posts(){
         $id = Auth::user()->id;
         return Post::where("propietari", $id)->get();
     }
 
+    
     public function crear(Request $request) {
         
         $data = request()->validate([
@@ -30,7 +32,7 @@ class HomeController extends Controller {
             'linkweb' => ['required', 'string', 'max:255'],
             'linkimage' => ['required', 'string', 'max:255'],
         ]);
-
+        
         return Post::create([
             'nom' => $request->nom,
             'linkweb' => $request->linkweb,
@@ -47,16 +49,38 @@ class HomeController extends Controller {
             'linkweb' => ['required', 'string', 'max:255'],
             'linkimage' => ['required', 'string', 'max:255'],
         ]);
-
+        
         // Per a que utilitze la funció de dalt i s'actualitza, es fa el següent
 
         $idPost->update($data);
 
     }
-
+    
     public function delete(Post $idPost) {
         
         $idPost->delete();
+        
+    }
+
+    // Del SimonDice.vue
+    
+    public function listar_records(){
+        $id = Auth::user()->id;
+        return Post::where("idjugador", $id)->get();
+    }
+
+    public function guardar_record(Request $request) {
+        
+        $data = request()->validate([
+            'joc' => ['required', 'text'],
+            'record' => ['required', 'string', 'max:255']
+        ]);
+
+        return Post::create([
+            'joc' => $request->joc,
+            'record' => $request->record,
+            'idjugador' => Auth::user()->id,
+        ]);
 
     }
 

@@ -43,6 +43,14 @@ Route::post('/crear_nueva', [App\Http\Controllers\HomeController::class, 'crear'
 
 Route::put('/editar_post/{idPost}', [App\Http\Controllers\HomeController::class, 'update'])->name('editar_post');
 
-// Delete de axios que ve de boto.vue i va a homecontroller
+// Delete de axios que ve de boto.vue i va a Homecontroller
 
 Route::delete('/eliminar_post/{idPost}', [App\Http\Controllers\HomeController::class, 'delete'])->name('eliminar_post');
+
+// Get de axios que ve de SimonDice.vue i va a HomeController
+
+Route::get('/listar_records', [App\Http\Controllers\HomeController::class, 'listar_records'])->name('listar_records');
+
+// Post de Axios que ve de SimonDice.vue i va a HomeController
+
+Route::post('/guardar_record', [App\Http\Controllers\HomeController::class, 'guardar_record'])->name('guardar_record');

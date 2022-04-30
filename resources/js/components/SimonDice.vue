@@ -29,6 +29,9 @@
     export default {
         name: "App",
         data: () => ({
+            // Axios
+            puntuacion: {joc: '', record: ''} ,
+            // Variables per al joc
             juego: false,
             cpu: [],
             persona: [],
@@ -39,6 +42,9 @@
             delay: 0,
             delay1: 0
         }),
+        mounted(){
+            this.getRecords()
+        },
         methods: {
             start() {
                 document.getElementById('div1').style.display = "grid";
@@ -265,6 +271,18 @@
                     this.conttouch = 0;
                     this.movs++;
                 }
+            },
+            // Mètode per a saber el rècord
+            getRecords(){
+                axios.get('listar_records').then(res=> {
+                    this.record = res.data;
+                })
+            },
+            // Mètode per a guardar el rècord
+            guardarRecord() {
+                axios.post('guardar_record', this.puntuacion).then(res=>{
+                    this.guardar = res.data;
+                })
             }
         }
     }
