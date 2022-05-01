@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Records;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/simondice', function () {
     return view('simondice');
-});
+})->middleware(['auth'])->name('simondice');
 
 // Ruta logout que va al HomeController
 Route::post('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');

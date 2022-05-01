@@ -212,10 +212,14 @@
                                 setTimeout(this.touchfalse,1500);
                             }
                         }else{
+                            // Game over
                             console.log(num + " (num apretat)" + this.cpu[this.conttouch] + " (num real)");
                             //Quan t'equivoques, que desaparega el quadrat i que només estiga el botó de restartgame
                             document.getElementById('div1').style.display = "none";
                             document.getElementById('fallo').style.display = "grid";
+                            // Guardem la puntuació
+                            this.puntuacion = {joc: 'simondice', record: this.movs+1};
+                            this.guardarRecord();
                         }
                     }
                     console.log(this.conttouch + " (conttouch)");
@@ -264,7 +268,7 @@
                         }
                     }
                     console.log(this.delay + " (delay)");
-                    //Per a que no pugam tocar res
+                    //Per a que no podam tocar res
                     setTimeout(this.touchtrue,this.delay);
                     this.delay = 0;
                     this.delay1 = 0;

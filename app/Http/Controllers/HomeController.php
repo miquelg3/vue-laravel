@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Records;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller {
@@ -65,8 +66,8 @@ class HomeController extends Controller {
     // Del SimonDice.vue
     
     public function listar_records(){
-        $id = Auth::user()->id;
-        return Post::where("idjugador", $id)->get();
+        $idd = Auth::user()->id;
+        return Records::where("idjugador", $idd)->get();
     }
 
     public function guardar_record(Request $request) {
@@ -76,14 +77,14 @@ class HomeController extends Controller {
             'record' => ['required', 'string', 'max:255']
         ]);
 
-        return Post::create([
+        return Records::create([
             'joc' => $request->joc,
             'record' => $request->record,
             'idjugador' => Auth::user()->id,
         ]);
 
     }
-
+    
     // Per a fer logout
 
     public function logout(Request $request) {
