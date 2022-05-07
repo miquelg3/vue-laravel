@@ -66,15 +66,15 @@ class HomeController extends Controller {
     // Del SimonDice.vue
     
     public function listar_records(){
-        $idd = Auth::user()->id;
-        return Records::where("idjugador", $idd)->get();
+        $id = Auth::user()->id;
+        return Records::where("idjugador", $id)->get();
     }
 
     public function guardar_record(Request $request) {
         
         $data = request()->validate([
-            'joc' => ['required', 'text'],
-            'record' => ['required', 'string', 'max:255']
+            'joc' => ['required'],
+            'record' => ['required']
         ]);
 
         return Records::create([

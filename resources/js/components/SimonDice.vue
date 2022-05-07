@@ -30,6 +30,7 @@
         name: "App",
         data: () => ({
             // Axios
+            punt: [],
             puntuacion: {joc: '', record: ''} ,
             // Variables per al joc
             juego: false,
@@ -218,7 +219,7 @@
                             document.getElementById('div1').style.display = "none";
                             document.getElementById('fallo').style.display = "grid";
                             // Guardem la puntuació
-                            this.puntuacion = {joc: 'simondice', record: this.movs+1};
+                            this.puntuacion = {joc: "simondice", record: this.movs};
                             this.guardarRecord();
                         }
                     }
@@ -279,7 +280,7 @@
             // Mètode per a saber el rècord
             getRecords(){
                 axios.get('listar_records').then(res=> {
-                    this.record = res.data;
+                    this.punt = res.data;
                 })
             },
             // Mètode per a guardar el rècord
