@@ -1,4 +1,9 @@
 <template>
+    <div>
+        <button style="border-radius: 0% !important" type="button" class="btn btn-secondary" onclick="window.location.href='dashboard'">
+            &#8249; Atrás
+        </button>
+    </div>
 
 <section>
     <div>
@@ -15,9 +20,27 @@
             <div id="6" class="cell" @click="cl(6)"></div>
             <div id="7" class="cell" @click="cl(7)"></div>
         </div>
+        <!-- Template per a veure el ranking -->
+        <template v-if="rank">
+            <div class="row justify-content-center">
+                <table class="table table-light" style="width: 50%">
+                    <thead>
+                        <th scope="col">Player</th>
+                        <th scope="col">Record</th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="record in records" :key="record.id">
+                            <td scope="row">{{record.idjugador}}</td>
+                            <td>{{record.record}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </template>
         <h2 class="game--status"></h2>
         <button class="btn game--start" id="emp" @click="start();">Start game</button>
-        <button class="game--restart" id="res" onclick="location.reload()">Restart Game</button>
+        <button class="btn game--ranking" id="rank" @click="ranking();">Ranking</button>
+        <button class="btn game--restart" id="res" onclick="location.reload()">Restart Game</button>
     </div>
 </section>
 
@@ -30,7 +53,7 @@
         name: "App",
         data: () => ({
             // Axios
-            punt: [],
+            records: [],
             puntuacion: {joc: '', record: ''} ,
             // Variables per al joc
             juego: false,
@@ -41,7 +64,8 @@
             rand: 0,
             movs: 0,
             delay: 0,
-            delay1: 0
+            delay1: 0,
+            rank: false
         }),
         mounted(){
             this.getRecords()
@@ -277,10 +301,18 @@
                     this.movs++;
                 }
             },
+            // Per a veure el ranking
+            ranking() {
+                if (this.rank == false){
+                    this.rank = true;
+                }else{
+                    this.rank = false;
+                }
+            },
             // Mètode per a saber el rècord
             getRecords(){
                 axios.get('listar_records').then(res=> {
-                    this.punt = res.data;
+                    this.records = res.data;
                 })
             },
             // Mètode per a guardar el rècord
@@ -388,6 +420,16 @@
     }
 
     .game--start {
+        background-color: #f7e4ac;
+        width: 200px;
+        height: 50px;
+        font-size: 25px;
+        color: #5586e2;
+        box-shadow: 2px 2px 2px 2px #d86c23;
+        border: 2px solid #d86c23;
+    }
+
+    .game--ranking {
         background-color: #f7e4ac;
         width: 200px;
         height: 50px;
