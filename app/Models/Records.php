@@ -11,6 +11,7 @@ class Records extends Model
 
     protected $fillable = [
         'idjugador',
+        'idname',
         'joc',
         'record',
     ];

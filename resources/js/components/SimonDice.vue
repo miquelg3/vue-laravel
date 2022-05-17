@@ -25,13 +25,15 @@
             <div class="row justify-content-center">
                 <table class="table table-light" style="width: 50%">
                     <thead>
-                        <th scope="col">Player</th>
+                        <th scope="col">ID Player</th>
                         <th scope="col">Record</th>
+                        <th scope="col">Name</th>
                     </thead>
                     <tbody>
                         <tr v-for="record in records" :key="record.id">
                             <td scope="row">{{record.idjugador}}</td>
                             <td>{{record.record}}</td>
+                            <td>{{record.idname}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -313,6 +315,8 @@
             getRecords(){
                 axios.get('listar_records').then(res=> {
                     this.records = res.data;
+                    // Creem funció per a que l'array s'ordene de millor puntuació a pijor puntuació
+                    this.records.sort(function (a,b){return b.record - a.record;})
                 })
             },
             // Mètode per a guardar el rècord
@@ -321,6 +325,9 @@
                     this.guardar = res.data;
                 })
             }
+        },
+        computed: {
+            
         }
     }
 

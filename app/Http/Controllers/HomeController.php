@@ -81,6 +81,7 @@ class HomeController extends Controller {
             'joc' => $request->joc,
             'record' => $request->record,
             'idjugador' => Auth::user()->id,
+            'idname' => Auth::user()->name
         ]);
 
     }
