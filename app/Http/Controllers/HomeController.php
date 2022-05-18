@@ -67,7 +67,7 @@ class HomeController extends Controller {
     
     public function listar_records(){
         $id = Auth::user()->id;
-        return Records::where("idjugador", $id)->get();
+        return Records::all();
     }
 
     public function guardar_record(Request $request) {

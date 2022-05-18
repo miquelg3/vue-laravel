@@ -84,7 +84,6 @@
             },
 
             colores(color) {
-                console.log(color);
                 if (color == 0) {
                     function changecolor1(){
                         document.getElementById('0').style.backgroundColor = "rgb(92, 175, 92)";
@@ -226,21 +225,16 @@
                     //Si està mostrant els colors, no es pot tocar res
                     window.alert("No puedes tocar nada");
                 }else{
-                    console.log(this.cpu + " (cpu)");
-                    console.log(num + " (num)");
-                    console.log(this.delay + " (delay)");
                     if (this.conttouch <= this.movs) {
                         if (num==this.cpu[this.conttouch]){
                             this.colores(num);
                             this.conttouch++;
                             if (this.conttouch == this.movs) {
-                                console.log(num + " (num apretat)");
                                 this.persona.push(num);
                                 setTimeout(this.touchfalse,1500);
                             }
                         }else{
                             // Game over
-                            console.log(num + " (num apretat)" + this.cpu[this.conttouch] + " (num real)");
                             //Quan t'equivoques, que desaparega el quadrat i que només estiga el botó de restartgame
                             document.getElementById('div1').style.display = "none";
                             document.getElementById('fallo').style.display = "grid";
@@ -249,10 +243,6 @@
                             this.guardarRecord();
                         }
                     }
-                    console.log(this.conttouch + " (conttouch)");
-                    console.log(this.movs + " (movs)");
-                    console.log(this.persona + " (persona)");
-                    console.log("");
                 }
             },
             //Creem les funcions de touch
@@ -261,7 +251,6 @@
                 this.cpujoc();
             },
             touchtrue() {
-                console.log(this.touch);
                 this.touch = true;
             },
             cpujoc() {
@@ -294,7 +283,6 @@
                             this.delay = this.delay + 500;
                         }
                     }
-                    console.log(this.delay + " (delay)");
                     //Per a que no podam tocar res
                     setTimeout(this.touchtrue,this.delay);
                     this.delay = 0;
